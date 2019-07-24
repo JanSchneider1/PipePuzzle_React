@@ -46,7 +46,7 @@ class Tile extends React.Component{
     render() {
         return (
             <div className="tile col">
-                <p>Tile</p>
+               <p>Tile</p>
             </div>
         );
     }
@@ -63,6 +63,16 @@ class Tilemap extends React.Component{
                     <Tile/>
                     <Tile/>
                     <Tile/>
+                    <Tile/>
+                </div>
+                <div className="row">
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
                 </div>
                 <div className="row">
                     <Tile/>
@@ -71,8 +81,19 @@ class Tilemap extends React.Component{
                     <Tile/>
                     <Tile/>
                     <Tile/>
+                    <Tile/>
                 </div>
                 <div className="row">
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                    <Tile/>
+                </div>
+                <div className="row">
+                    <Tile/>
                     <Tile/>
                     <Tile/>
                     <Tile/>
