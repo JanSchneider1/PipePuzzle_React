@@ -1,5 +1,5 @@
 {
-  "name": "React_Tutorial",
+  "name": "react-tutorial",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2",
+    "babel-preset-react-app": "^9.0.0",
     "express": "^4.17.1"
   }
 }
