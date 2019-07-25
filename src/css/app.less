@@ -8,11 +8,59 @@
   text-align: center;
 }
 
+.tilemap{
+  margin-left: 40vh !important;
+}
+
 .tile{
   border: 1px solid black;
 }
 
+.tile:focus{
+  animation: focus 1s forwards;
+}
+
 .tile img{
-  height: 160px;
+  height: 10vh;
   image-rendering: crisp-edges;
+}
+
+
+// Apply to tiles to rotate
+.rotate-0{
+  animation: rotate-360 0.5s forwards;
+}
+.rotate-1{
+  animation: rotate-90 0.5s forwards;
+}
+.rotate-2{
+  animation: rotate-180 0.5s forwards;
+}
+.rotate-3{
+  animation: rotate-270 0.5s forwards;
+}
+
+// Animation
+@keyframes focus {
+  100%{ transform: scale(1.5, 1.5);}
+}
+
+@keyframes rotate-90{
+  0%  { transform: rotateZ(0deg); }
+  100%{ transform: rotateZ(90deg); }
+}
+
+@keyframes rotate-180{
+  0%  { transform: rotateZ(90deg); }
+  100%{ transform: rotateZ(180deg); }
+}
+
+@keyframes rotate-270{
+  0%  { transform: rotateZ(180deg); }
+  100%{ transform: rotateZ(270deg); }
+}
+
+@keyframes rotate-360{
+  0%  { transform: rotateZ(270deg); }
+  100%{ transform: rotateZ(360deg); }
 }

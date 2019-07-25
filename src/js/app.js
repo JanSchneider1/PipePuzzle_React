@@ -45,10 +45,23 @@ class HUD extends React.Component{
 class Tile extends React.Component{
     render() {
         return (
-            <div className="tile">
+            <div className={"tile " + this.applyRotationClass()}>
                 <img alt="Tile" src={this.getImgBasedOnType()}/>
             </div>
         );
+    }
+
+    applyRotationClass(){
+        switch (this.props.rotation) {
+            case '0':
+                return "rotate-0";
+            case '1':
+                return "rotate-1";
+            case '2':
+                return "rotate-2";
+            case '3':
+                return "rotate-3";
+        }
     }
 
     getImgBasedOnType(){
@@ -76,28 +89,28 @@ class Tilemap extends React.Component{
         return (
             <div className="tilemap container-fluid">
                 <div className="row">
-                    <Tile type={tileMapData[0][0]}/>
-                    <Tile type={tileMapData[0][1]}/>
-                    <Tile type={tileMapData[0][2]}/>
-                    <Tile type={tileMapData[0][3]}/>
-                    <Tile type={tileMapData[0][4]}/>
-                    <Tile type={tileMapData[0][5]}/>
+                    <Tile type={tileMapData[0][0]} rotation="0"/>
+                    <Tile type={tileMapData[0][1]} rotation="0"/>
+                    <Tile type={tileMapData[0][2]} rotation="0"/>
+                    <Tile type={tileMapData[0][3]} rotation="0"/>
+                    <Tile type={tileMapData[0][4]} rotation="0"/>
+                    <Tile type={tileMapData[0][5]} rotation="0"/>
                 </div>
                 <div className="row">
-                    <Tile type={tileMapData[1][0]}/>
-                    <Tile type={tileMapData[1][1]}/>
-                    <Tile type={tileMapData[1][2]}/>
-                    <Tile type={tileMapData[1][3]}/>
-                    <Tile type={tileMapData[1][4]}/>
-                    <Tile type={tileMapData[1][5]}/>
+                    <Tile type={tileMapData[1][0]} rotation="0"/>
+                    <Tile type={tileMapData[1][1]} rotation="0"/>
+                    <Tile type={tileMapData[1][2]} rotation="0"/>
+                    <Tile type={tileMapData[1][3]} rotation="0"/>
+                    <Tile type={tileMapData[1][4]} rotation="0"/>
+                    <Tile type={tileMapData[1][5]} rotation="2"/>
                 </div>
                 <div className="row">
-                    <Tile type={tileMapData[2][0]}/>
-                    <Tile type={tileMapData[2][1]}/>
-                    <Tile type={tileMapData[2][2]}/>
-                    <Tile type={tileMapData[2][3]}/>
-                    <Tile type={tileMapData[2][4]}/>
-                    <Tile type={tileMapData[2][5]}/>
+                    <Tile type={tileMapData[2][0]} rotation="0"/>
+                    <Tile type={tileMapData[2][1]} rotation="0"/>
+                    <Tile type={tileMapData[2][2]} rotation="0"/>
+                    <Tile type={tileMapData[2][3]} rotation="0"/>
+                    <Tile type={tileMapData[2][4]} rotation="0"/>
+                    <Tile type={tileMapData[2][5]} rotation="0"/>
                 </div>
             </div>
         );
