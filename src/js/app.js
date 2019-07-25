@@ -53,13 +53,13 @@ class Tile extends React.Component{
 
     applyRotationClass(){
         switch (this.props.rotation) {
-            case '0':
+            case 0:
                 return "rotate-0";
-            case '1':
+            case 1:
                 return "rotate-1";
-            case '2':
+            case 2:
                 return "rotate-2";
-            case '3':
+            case 3:
                 return "rotate-3";
         }
     }
@@ -89,28 +89,28 @@ class Tilemap extends React.Component{
         return (
             <div className="tilemap container-fluid">
                 <div className="row">
-                    <Tile type={tileMapData[0][0]} rotation="0"/>
-                    <Tile type={tileMapData[0][1]} rotation="0"/>
-                    <Tile type={tileMapData[0][2]} rotation="0"/>
-                    <Tile type={tileMapData[0][3]} rotation="0"/>
-                    <Tile type={tileMapData[0][4]} rotation="0"/>
-                    <Tile type={tileMapData[0][5]} rotation="0"/>
+                    <Tile type={tileMapData[0][0].type} rotation={tileMapData[0][0].rotation}/>
+                    <Tile type={tileMapData[0][1].type} rotation={tileMapData[0][1].rotation}/>
+                    <Tile type={tileMapData[0][2].type} rotation={tileMapData[0][2].rotation}/>
+                    <Tile type={tileMapData[0][3].type} rotation={tileMapData[0][3].rotation}/>
+                    <Tile type={tileMapData[0][4].type} rotation={tileMapData[0][4].rotation}/>
+                    <Tile type={tileMapData[0][5].type} rotation={tileMapData[0][5].rotation}/>
                 </div>
                 <div className="row">
-                    <Tile type={tileMapData[1][0]} rotation="0"/>
-                    <Tile type={tileMapData[1][1]} rotation="0"/>
-                    <Tile type={tileMapData[1][2]} rotation="0"/>
-                    <Tile type={tileMapData[1][3]} rotation="0"/>
-                    <Tile type={tileMapData[1][4]} rotation="0"/>
-                    <Tile type={tileMapData[1][5]} rotation="2"/>
+                    <Tile type={tileMapData[1][0].type} rotation={tileMapData[1][0].rotation}/>
+                    <Tile type={tileMapData[1][1].type} rotation={tileMapData[1][1].rotation}/>
+                    <Tile type={tileMapData[1][2].type} rotation={tileMapData[1][2].rotation}/>
+                    <Tile type={tileMapData[1][3].type} rotation={tileMapData[1][3].rotation}/>
+                    <Tile type={tileMapData[1][4].type} rotation={tileMapData[1][4].rotation}/>
+                    <Tile type={tileMapData[1][5].type} rotation={tileMapData[1][5].rotation}/>
                 </div>
                 <div className="row">
-                    <Tile type={tileMapData[2][0]} rotation="0"/>
-                    <Tile type={tileMapData[2][1]} rotation="0"/>
-                    <Tile type={tileMapData[2][2]} rotation="0"/>
-                    <Tile type={tileMapData[2][3]} rotation="0"/>
-                    <Tile type={tileMapData[2][4]} rotation="0"/>
-                    <Tile type={tileMapData[2][5]} rotation="0"/>
+                    <Tile type={tileMapData[2][0].type} rotation={tileMapData[2][0].rotation}/>
+                    <Tile type={tileMapData[2][1].type} rotation={tileMapData[2][1].rotation}/>
+                    <Tile type={tileMapData[2][2].type} rotation={tileMapData[2][2].rotation}/>
+                    <Tile type={tileMapData[2][3].type} rotation={tileMapData[2][3].rotation}/>
+                    <Tile type={tileMapData[2][4].type} rotation={tileMapData[2][4].rotation}/>
+                    <Tile type={tileMapData[2][5].type} rotation={tileMapData[2][5].rotation}/>
                 </div>
             </div>
         );
@@ -127,12 +127,90 @@ class Game extends React.Component{
         );
     }
 }
-
 //=================================================================
+class TileData {
+    constructor (type, rotation) {
+        this.type = type;
+        this.rotation = rotation;
+    }
+
+    goesUp(){
+        if (this.type === "I" && (this.rotation === 1 || this.rotation === 3)){
+            return true;
+        }
+        else if (this.type === "L" && (this.rotation === 0|| this.rotation === 1)){
+            return true;
+        }
+        else if (this.type === "T" && (this.rotation === 1 || this.rotation === 2 || this.rotation === 3)){
+            return true;
+        }
+        else if (this.type === "X"){
+            return true;
+        }
+        return false;
+    }
+
+    goesRight(){
+        if (this.type === "I" && (this.rotation === 0 || this.rotation === 2)){
+            return true;
+        }
+        else if (this.type === "L" && (this.rotation === 1|| this.rotation === 2)){
+            return true;
+        }
+        else if (this.type === "T" && (this.rotation === 0 || this.rotation === 2 || this.rotation === 3)){
+            return true;
+        }
+        else if (this.type === "X"){
+            return true;
+        }
+        return false;
+    }
+
+    goesDown(){
+        if (this.type === "I" && (this.rotation === 1 || this.rotation === 3)){
+            return true;
+        }
+        else if (this.type === "L" && (this.rotation === 2|| this.rotation === 3)){
+            return true;
+        }
+        else if (this.type === "T" && (this.rotation === 0 || this.rotation === 1 || this.rotation === 3)){
+            return true;
+        }
+        else if (this.type === "X"){
+            return true;
+        }
+        return false;
+    }
+
+    goesLeft(){
+        if (this.type === "I" && (this.rotation === 0 || this.rotation === 2)){
+            return true;
+        }
+        else if (this.type === "L" && (this.rotation === 0|| this.rotation === 3)){
+            return true;
+        }
+        else if (this.type === "T" && (this.rotation === 0 || this.rotation === 1 || this.rotation === 2)){
+            return true;
+        }
+        else if (this.type === "X"){
+            return true;
+        }
+        return false;
+    }
+}
+
+var tileMapData = [
+    [new TileData("-", 0), new TileData("L", 0), new TileData("L", 0), new TileData("I", 0), new TileData("I", 0), new TileData("-", 0)],
+    [new TileData("S", 0), new TileData("T", 0), new TileData("L", 0), new TileData("T", 0), new TileData("X", 0), new TileData("E", 0)],
+    [new TileData("-", 0), new TileData("T", 0), new TileData("I", 0), new TileData("T", 0), new TileData("L", 0), new TileData("-", 0)],
+];
+
+/*
 var tileMapData = [
     ["-", "L", "L", "I", "I", "-"],
     ["S", "T", "L", "T", "X", "E"],
     ["-", "T", "I", "T", "L", "-"],
 ];
+*/
 
 ReactDOM.render(<Game tileMapData={tileMapData}/>, document.getElementById('app'));
