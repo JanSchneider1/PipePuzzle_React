@@ -45,10 +45,29 @@ class HUD extends React.Component{
 class Tile extends React.Component{
     render() {
         return (
-            <div className="tile col">
-               <p>Tile</p>
+            <div className="tile">
+                <img alt="Tile" src={this.getImgBasedOnType()}/>
             </div>
         );
+    }
+
+    getImgBasedOnType(){
+        switch(this.props.type){
+            case '-':
+                return "/img/Empty_Tile.png";
+            case 'S':
+                return "/img/Start.png";
+            case 'E':
+                return "/img/End.png";
+            case 'X':
+                return "/img/X-Tile.png";
+            case 'L':
+                return "/img/L-Tile.png";
+            case 'I':
+                return "/img/I-Tile.png";
+            case 'T':
+                return "/img/T-Tile.png";
+        }
     }
 }
 
@@ -57,49 +76,28 @@ class Tilemap extends React.Component{
         return (
             <div className="tilemap container-fluid">
                 <div className="row">
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
+                    <Tile type={tileMapData[0][0]}/>
+                    <Tile type={tileMapData[0][1]}/>
+                    <Tile type={tileMapData[0][2]}/>
+                    <Tile type={tileMapData[0][3]}/>
+                    <Tile type={tileMapData[0][4]}/>
+                    <Tile type={tileMapData[0][5]}/>
                 </div>
                 <div className="row">
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
+                    <Tile type={tileMapData[1][0]}/>
+                    <Tile type={tileMapData[1][1]}/>
+                    <Tile type={tileMapData[1][2]}/>
+                    <Tile type={tileMapData[1][3]}/>
+                    <Tile type={tileMapData[1][4]}/>
+                    <Tile type={tileMapData[1][5]}/>
                 </div>
                 <div className="row">
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                </div>
-                <div className="row">
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                </div>
-                <div className="row">
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
-                    <Tile/>
+                    <Tile type={tileMapData[2][0]}/>
+                    <Tile type={tileMapData[2][1]}/>
+                    <Tile type={tileMapData[2][2]}/>
+                    <Tile type={tileMapData[2][3]}/>
+                    <Tile type={tileMapData[2][4]}/>
+                    <Tile type={tileMapData[2][5]}/>
                 </div>
             </div>
         );
@@ -111,11 +109,17 @@ class Game extends React.Component{
         return (
             <div className="game">
                 <HUD/>
-                <Tilemap/>
+                <Tilemap tileMapData={this.props.tileMapData}/>
             </div>
         );
     }
 }
 
 //=================================================================
-ReactDOM.render(<Game/>, document.getElementById('app'));
+var tileMapData = [
+    ["-", "L", "L", "I", "I", "-"],
+    ["S", "T", "L", "T", "X", "E"],
+    ["-", "T", "I", "T", "L", "-"],
+];
+
+ReactDOM.render(<Game tileMapData={tileMapData}/>, document.getElementById('app'));
