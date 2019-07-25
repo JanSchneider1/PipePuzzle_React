@@ -19,13 +19,7 @@ So type this command in your console when your'e in the directory of this projec
 
     npm install
     
-### 4. Initialize Node.js
-
-To setup node execute the following command:
-
-    node init -y
-    
-### 5. Start Babel watching over your src folder
+### 4. Start Babel watching over your src folder
 
 If you want to use JSX (JavaScriptXML) with React you need to make
 Babel translate it to valid JS that even IE can execute.
@@ -36,7 +30,7 @@ You have to execute the following script each time you start up the project:
 Now your js files in the src folder will be found translated in your /build/js folder.
 Babel will automatically compile as you make changes to your files as it now watching you!
 
-### 6. Start up the server
+### 5. Start up the server
 
 To start up the server you just need to execute:
 
