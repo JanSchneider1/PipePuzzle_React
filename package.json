@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "echo Start watching... && npx babel --watch src --out-dir ./build --presets react-app/prod",
+    "watch": "echo Start watching (Babel/JSX)... && npx babel --watch src --out-dir ./build --presets react-app/prod",
+    "watch-browserify": "echo Start watching (Watchify/Browserify)... && watchify ./build/js/app.js -v --dg -o ./build/js/app_deploy.js",
     "minify": "terser build/js/app.js --compress --output build/minified/js/app.min.js",
     "test": "jest"
   },

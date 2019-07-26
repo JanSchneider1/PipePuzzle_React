@@ -127,85 +127,13 @@ class Game extends React.Component{
         );
     }
 }
-//================================================================
-//import {TileData} from "./_tiledata";
-
-class TileData {
-    constructor (type, rotation) {
-        this.type = type;
-        this.rotation = rotation;
-    }
-
-    goesUp(){
-        if (this.type === "I" && (this.rotation === 1 || this.rotation === 3)){
-            return true;
-        }
-        else if (this.type === "L" && (this.rotation === 0|| this.rotation === 1)){
-            return true;
-        }
-        else if (this.type === "T" && (this.rotation === 1 || this.rotation === 2 || this.rotation === 3)){
-            return true;
-        }
-        else if (this.type === "X"){
-            return true;
-        }
-        return false;
-    }
-
-    goesRight(){
-        if (this.type === "I" && (this.rotation === 0 || this.rotation === 2)){
-            return true;
-        }
-        else if (this.type === "L" && (this.rotation === 1|| this.rotation === 2)){
-            return true;
-        }
-        else if (this.type === "T" && (this.rotation === 0 || this.rotation === 2 || this.rotation === 3)){
-            return true;
-        }
-        else if (this.type === "X"){
-            return true;
-        }
-        return false;
-    }
-
-    goesDown(){
-        if (this.type === "I" && (this.rotation === 1 || this.rotation === 3)){
-            return true;
-        }
-        else if (this.type === "L" && (this.rotation === 2|| this.rotation === 3)){
-            return true;
-        }
-        else if (this.type === "T" && (this.rotation === 0 || this.rotation === 1 || this.rotation === 3)){
-            return true;
-        }
-        else if (this.type === "X"){
-            return true;
-        }
-        return false;
-    }
-
-    goesLeft(){
-        if (this.type === "I" && (this.rotation === 0 || this.rotation === 2)){
-            return true;
-        }
-        else if (this.type === "L" && (this.rotation === 0|| this.rotation === 3)){
-            return true;
-        }
-        else if (this.type === "T" && (this.rotation === 0 || this.rotation === 1 || this.rotation === 2)){
-            return true;
-        }
-        else if (this.type === "X"){
-            return true;
-        }
-        return false;
-    }
-}
+//=================================================================
+const { TileData } = require("./_tiledata.js");
 
 var tileMapData = [
     [new TileData("-", 0), new TileData("L", 0), new TileData("L", 0), new TileData("I", 0), new TileData("I", 0), new TileData("-", 0)],
     [new TileData("S", 0), new TileData("T", 0), new TileData("L", 0), new TileData("T", 0), new TileData("X", 0), new TileData("E", 0)],
     [new TileData("-", 0), new TileData("T", 0), new TileData("I", 0), new TileData("T", 0), new TileData("L", 0), new TileData("-", 0)],
 ];
-ReactDOM.render(<Game tileMapData={tileMapData}/>, document.getElementById('app'));
 
-alert('Yeah');
+ReactDOM.render(<Game tileMapData={tileMapData}/>, document.getElementById('app'));
