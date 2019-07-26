@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="467f4805-362c-42c5-96e0-c7c5139862fc" name="Default Changelist" comment="Optimized npm scripts for tool chain">
-      <change afterPath="$PROJECT_DIR$/test/_tiledata.test.js" afterDir="false" />
+    <list default="true" id="467f4805-362c-42c5-96e0-c7c5139862fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/_tiledata.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/_tiledata.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/app.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/_tiledata.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/_tiledata.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,20 +15,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/_tiledata.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="142" column="61" selection-start-line="142" selection-start-column="61" selection-end-line="142" selection-end-column="61" />
+            <state relative-caret-position="536">
+              <caret line="151" column="6" selection-start-line="151" selection-start-column="6" selection-end-line="151" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/_tiledata.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="96" column="9" lean-forward="true" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+            <state relative-caret-position="170">
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -83,8 +81,8 @@
         <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/test/app.test.js" />
-        <option value="$PROJECT_DIR$/test/_tiledata.test.js" />
         <option value="$PROJECT_DIR$/src/js/_tiledata.js" />
+        <option value="$PROJECT_DIR$/test/_tiledata.test.js" />
       </list>
     </option>
   </component>
@@ -169,7 +167,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564151668768" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564152916333" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -286,7 +284,7 @@
       <workItem from="1563955337584" duration="6729000" />
       <workItem from="1564042234606" duration="817000" />
       <workItem from="1564046995922" duration="18330000" />
-      <workItem from="1564122764769" duration="24961000" />
+      <workItem from="1564122764769" duration="26116000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Babel">
       <created>1563954411691</created>
@@ -372,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564139980677</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added Jest Test for TileData">
+      <created>1564151692905</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1564151692905</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -408,7 +413,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68537000" />
+    <option name="totallyTimeSpent" value="69692000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -541,7 +546,8 @@
     <MESSAGE value="Added jest" />
     <MESSAGE value="Integrated Browserfy &amp; Watchify" />
     <MESSAGE value="Optimized npm scripts for tool chain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimized npm scripts for tool chain" />
+    <MESSAGE value="Added Jest Test for TileData" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Jest Test for TileData" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/js/js/app.js" />
@@ -698,17 +704,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/_tiledata.test.js">
+    <entry file="file://$PROJECT_DIR$/src/js/_tiledata.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="142" column="61" selection-start-line="142" selection-start-column="61" selection-end-line="142" selection-end-column="61" />
+        <state relative-caret-position="170">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/_tiledata.js">
+    <entry file="file://$PROJECT_DIR$/test/_tiledata.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="96" column="9" lean-forward="true" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+        <state relative-caret-position="536">
+          <caret line="151" column="6" selection-start-line="151" selection-start-column="6" selection-end-line="151" selection-end-column="6" />
         </state>
       </provider>
     </entry>

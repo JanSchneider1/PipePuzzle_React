@@ -143,3 +143,11 @@ describe('Test if rotateClockWise changes the rotation of TileBase', () => {
         expect(new TileData(type, rotation).rotateClockWise()).toEqual(expectedRotation);
     })
 });
+
+test("TileData with type 'S' are lit by default", () => {
+    expect(new TileData('S', 0).isLit).toBe(true);
+});
+
+test("TileData with type 'X' aren't lit by default", () => {
+    expect(new TileData('X', 0).isLit).toBe(false);
+});

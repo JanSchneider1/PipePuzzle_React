@@ -8,6 +8,11 @@ class TileData {
         }
         this.type = type;
         this.rotation = rotation;
+        if (type === 'S') {
+            this.isLit = true
+        } else {
+            this.isLit = false;
+        }
     }
 
     goesUp(){
