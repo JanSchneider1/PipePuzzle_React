@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "echo Start watching (Babel/JSX)... && npx babel --watch src --out-dir ./build --presets react-app/prod",
+    "watch": "concurrently \"npm run watch-babel\" \"npm run watch-browserify\"",
+    "watch-babel": "echo Start watching (Babel/JSX)... && npx babel --watch src --out-dir ./build --presets react-app/prod",
     "watch-browserify": "echo Start watching (Watchify/Browserify)... && watchify ./build/js/app.js -v --dg -o ./build/js/app_deploy.js",
     "minify": "terser build/js/app.js --compress --output build/minified/js/app.min.js",
     "test": "jest"
@@ -22,6 +23,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babelify": "^10.0.0",
+    "concurrently": "^4.1.1",
     "jest": "^24.8.0"
   }
 }
