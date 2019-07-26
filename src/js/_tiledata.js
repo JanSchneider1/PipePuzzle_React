@@ -1,4 +1,4 @@
-exports.TileData = class TileData {
+export class TileData {
     constructor (type, rotation) {
         this.type = type;
         this.rotation = rotation;
@@ -66,5 +66,5 @@ exports.TileData = class TileData {
             return true;
         }
         return false;
-    }
-};
+}
+}

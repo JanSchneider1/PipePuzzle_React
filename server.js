@@ -18,6 +18,11 @@ app.get('/app.js', function(req, res) {
     res.sendFile(path.join(__dirname + '/build/js/app.js'));
 });
 
+app.get('/app_deploy.js', function(req, res) {
+    console.log("Sending JS file 'app.js' to client");
+    res.sendFile(path.join(__dirname + '/build/js/app_deploy.js'));
+});
+
 app.get('/app.less', function(req, res) {
     console.log("Sending LESS file 'app.less' to client");
     res.sendFile(path.join(__dirname + '/src/css/app.less'));
