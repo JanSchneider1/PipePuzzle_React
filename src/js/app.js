@@ -52,7 +52,7 @@ class Tile extends React.Component{
     }
 
     applyRotationClass(){
-        switch (this.props.rotation) {
+        switch (this.props.data.rotation) {
             case 0:
                 return "rotate-0";
             case 1:
@@ -65,8 +65,8 @@ class Tile extends React.Component{
     }
 
     getImgBasedOnType(){
-        if (this.props.isLit){
-            switch(this.props.type){
+        if (this.props.data.isLit){
+            switch(this.props.data.type){
                 case '-':
                     return "/img/Empty_Tile.png";
                 case 'S':
@@ -84,7 +84,7 @@ class Tile extends React.Component{
             }
         }
         else{
-            switch(this.props.type){
+            switch(this.props.data.type){
                 case '-':
                     return "/img/Empty_Tile.png";
                 case 'S':
@@ -109,28 +109,28 @@ class Tilemap extends React.Component{
         return (
             <div className="tilemap container-fluid">
                 <div className="row">
-                    <Tile type={tileMapData[0][0].type} rotation={tileMapData[0][0].rotation} isLit={tileMapData[0][0].isLit}/>
-                    <Tile type={tileMapData[0][1].type} rotation={tileMapData[0][1].rotation} isLit={tileMapData[0][1].isLit}/>
-                    <Tile type={tileMapData[0][2].type} rotation={tileMapData[0][2].rotation} isLit={tileMapData[0][2].isLit}/>
-                    <Tile type={tileMapData[0][3].type} rotation={tileMapData[0][3].rotation} isLit={tileMapData[0][3].isLit}/>
-                    <Tile type={tileMapData[0][4].type} rotation={tileMapData[0][4].rotation} isLit={tileMapData[0][4].isLit}/>
-                    <Tile type={tileMapData[0][5].type} rotation={tileMapData[0][5].rotation} isLit={tileMapData[0][5].isLit}/>
+                    <Tile data={this.props.tileMapData[0][0]}/>
+                    <Tile data={this.props.tileMapData[0][1]}/>
+                    <Tile data={this.props.tileMapData[0][2]}/>
+                    <Tile data={this.props.tileMapData[0][3]}/>
+                    <Tile data={this.props.tileMapData[0][4]}/>
+                    <Tile data={this.props.tileMapData[0][5]}/>
                 </div>
                 <div className="row">
-                    <Tile type={tileMapData[1][0].type} rotation={tileMapData[1][0].rotation} isLit={tileMapData[1][0].isLit}/>
-                    <Tile type={tileMapData[1][1].type} rotation={tileMapData[1][1].rotation} isLit={tileMapData[1][1].isLit}/>
-                    <Tile type={tileMapData[1][2].type} rotation={tileMapData[1][2].rotation} isLit={tileMapData[1][2].isLit}/>
-                    <Tile type={tileMapData[1][3].type} rotation={tileMapData[1][3].rotation} isLit={tileMapData[1][3].isLit}/>
-                    <Tile type={tileMapData[1][4].type} rotation={tileMapData[1][4].rotation} isLit={tileMapData[1][4].isLit}/>
-                    <Tile type={tileMapData[1][5].type} rotation={tileMapData[1][5].rotation} isLit={tileMapData[1][5].isLit}/>
+                    <Tile data={this.props.tileMapData[1][0]}/>
+                    <Tile data={this.props.tileMapData[1][1]}/>
+                    <Tile data={this.props.tileMapData[1][2]}/>
+                    <Tile data={this.props.tileMapData[1][3]}/>
+                    <Tile data={this.props.tileMapData[1][4]}/>
+                    <Tile data={this.props.tileMapData[1][5]}/>
                 </div>
                 <div className="row">
-                    <Tile type={tileMapData[2][0].type} rotation={tileMapData[2][0].rotation} isLit={tileMapData[2][0].isLit}/>
-                    <Tile type={tileMapData[2][1].type} rotation={tileMapData[2][1].rotation} isLit={tileMapData[2][1].isLit}/>
-                    <Tile type={tileMapData[2][2].type} rotation={tileMapData[2][2].rotation} isLit={tileMapData[2][2].isLit}/>
-                    <Tile type={tileMapData[2][3].type} rotation={tileMapData[2][3].rotation} isLit={tileMapData[2][3].isLit}/>
-                    <Tile type={tileMapData[2][4].type} rotation={tileMapData[2][4].rotation} isLit={tileMapData[2][4].isLit}/>
-                    <Tile type={tileMapData[2][5].type} rotation={tileMapData[2][5].rotation} isLit={tileMapData[2][5].isLit}/>
+                    <Tile data={this.props.tileMapData[2][0]}/>
+                    <Tile data={this.props.tileMapData[2][1]}/>
+                    <Tile data={this.props.tileMapData[2][2]}/>
+                    <Tile data={this.props.tileMapData[2][3]}/>
+                    <Tile data={this.props.tileMapData[2][4]}/>
+                    <Tile data={this.props.tileMapData[2][5]}/>
                 </div>
             </div>
         );
@@ -152,12 +152,4 @@ const { TileData } = require("./_tiledata.js");
 const { Game } = require("./_game.js");
 var game = new Game();
 
-var tileMapData = [
-    [new TileData("-", 0), new TileData("L", 0), new TileData("L", 0), new TileData("I", 0), new TileData("I", 0), new TileData("-", 0)],
-    [new TileData("S", 0), new TileData("T", 0), new TileData("L", 0), new TileData("T", 0), new TileData("X", 0), new TileData("E", 2)],
-    [new TileData("-", 0), new TileData("T", 0), new TileData("I", 0), new TileData("T", 0), new TileData("L", 0), new TileData("-", 0)],
-];
-
-console.log(game.evaluateTilemap(tileMapData));
-
-ReactDOM.render(<GameUI tileMapData={tileMapData}/>, document.getElementById('app'));
+ReactDOM.render(<GameUI tileMapData={game.tileMapData}/>, document.getElementById('app'));
