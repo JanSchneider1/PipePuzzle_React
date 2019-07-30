@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="467f4805-362c-42c5-96e0-c7c5139862fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/img/End_Lit.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/_game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="66" column="14" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+            <state relative-caret-position="478">
+              <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
             </state>
           </provider>
         </entry>
@@ -157,6 +156,12 @@
             <path>
               <item name="React_Tutorial" type="b2602c69:ProjectViewProjectNode" />
               <item name="React_Tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="React_Tutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="React_Tutorial" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -192,7 +197,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564473988819" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564474077950" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -201,14 +206,15 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Jan\IdeaProjects\React_Tutorial\resources\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jan\IdeaProjects\React_Tutorial\resources\img" />
       <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial" />
       <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\src\static" />
       <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\src\static\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\resources\img" />
+      <recent name="C:\Users\Jan\IdeaProjects\React_Tutorial\resources\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -311,7 +317,7 @@
       <workItem from="1564046995922" duration="18330000" />
       <workItem from="1564122764769" duration="27826000" />
       <workItem from="1564463472527" duration="6104000" />
-      <workItem from="1564470177169" duration="3794000" />
+      <workItem from="1564470177169" duration="4479000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Babel">
       <created>1563954411691</created>
@@ -439,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564469336078</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Functionality to rotate tiles and update tilemap evaluation">
+      <created>1564474014319</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1564474014319</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -475,7 +488,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103184000" />
+    <option name="totallyTimeSpent" value="103869000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -614,7 +627,8 @@
     <MESSAGE value="Added tests for '_game.js'" />
     <MESSAGE value="Added algorithm for updating state of tilemap" />
     <MESSAGE value="Added tests for evaluation algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tests for evaluation algorithm" />
+    <MESSAGE value="Functionality to rotate tiles and update tilemap evaluation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functionality to rotate tiles and update tilemap evaluation" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/js/js/app.js" />
@@ -764,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="66" column="14" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+        <state relative-caret-position="478">
+          <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
         </state>
       </provider>
     </entry>
