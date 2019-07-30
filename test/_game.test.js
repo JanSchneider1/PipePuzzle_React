@@ -124,13 +124,40 @@ describe('Test if getMatchingNeighborsOfTileAtPos return the expected list of ti
 
     ${0} | ${0} | ${[]}
     ${0} | ${1} | ${[[1, 1]]}
-    ${1} | ${1} | ${[[2, 1],[0, 1]]}
-    ${2} | ${1} | ${[[2, 0],[1, 1]]}
+    ${1} | ${1} | ${[[2, 1], [0, 1]]}
+    ${4} | ${1} | ${[[5, 1], [4, 2], [3, 1]]}
+    ${4} | ${2} | ${[[4, 1], [3, 2]]}
    
     `(`The matching neighbor tiles of ($x, $y) are $expectedList`, ({x, y, expectedList}) => {
         expect(game.getMatchingNeighborsOfTileAtPos(x,y)).toEqual(expectedList);
     })
 });
 
+test("Return null when try to get start pos on empty tilemap", () => {
+    game.tileMapData = [];
+    expect(game.getStartPos()).toEqual(null);
+});
+
+test("Rekursive traversing through neighbored matching tiles does terminate", () => {
+    expect(game.evaluateTileMap());
+});
+
+function bla(p, visited){
+    for (let v in visited){
+        if (v[0] === p[0] && v[1] === p[0]){
+            return true;
+        }
+    }
+    return false;
+}
+
+test("Rekursive traversing through neighbored matching tiles does terminate", () => {
+
+    let visited = [[0,1],[1,1],[2,1],[0,1]];
+    let pos = [[2,1],[0,1]];
+    let toVisit = pos.filter(p => bla(p, visited));
+
+    expect(toVisit).toEqual([]);
+});
 
 

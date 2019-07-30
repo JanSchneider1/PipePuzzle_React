@@ -12,16 +12,25 @@ class Game{
     }
 
     evaluateTileMap() {
-        var visited = [];
+        let visited = [];
         this.evaluateTileAtPos(this.startPos[0], this.startPos[1], visited);
     }
 
     evaluateTileAtPos(x, y, visited){
-        const positions = this.getMatchingNeighborsOfTileAtPos(x, y);
-        visited.push([x,y]);
         this.getTileAtPos(x,y).isLit = true;
-        const positionsToVisit = positions.filter(pos => visited.includes([pos[0][1]]));
-        if (positionsToVisit.length === 0) {return;}
+        visited.push([x,y]);
+        const positions = this.getMatchingNeighborsOfTileAtPos(x, y);
+        // Filter position, that have been visited
+        const positionsToVisit = positions.filter(pos => {
+            for (let i=0; i<visited.length; i++){
+                let v = visited[i];
+                if (v[0] === pos[0] && v[1] === pos[1]){
+                    return false;
+                }
+            }
+            return true;
+        });
+        if (positionsToVisit.length === 0) {return true;}
         positionsToVisit.forEach(pos => this.evaluateTileAtPos(pos[0], pos[1], visited));
     }
 
