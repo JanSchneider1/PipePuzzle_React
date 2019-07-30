@@ -9,19 +9,20 @@
 }
 
 .tilemap{
-  margin-left: 40vh !important;
+  margin-left: 35vh !important;
 }
 
-.tile{
-  border: 1px solid black;
+.tile img{
+  border-radius: 15px 15px 15px 15px;
+  border: 5px inset rgba(0, 0, 0, 0);
 }
 
-.tile:focus{
+.tile img:hover{
   animation: focus 1s forwards;
 }
 
 .tile img{
-  height: 10vh;
+  height: 15vh;
   image-rendering: crisp-edges;
 }
 
@@ -42,7 +43,9 @@
 
 // Animation
 @keyframes focus {
-  100%{ transform: scale(1.5, 1.5);}
+  100%{
+    transform: scale(1.2, 1.2);
+  }
 }
 
 @keyframes rotate-90{
