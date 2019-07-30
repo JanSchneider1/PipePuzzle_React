@@ -12,6 +12,7 @@ class Game{
     }
 
     evaluateTileMap() {
+        this.setAllTilesToUnlit();
         let visited = [];
         this.evaluateTileAtPos(this.startPos[0], this.startPos[1], visited);
     }
@@ -59,6 +60,14 @@ class Game{
         return list;
     }
 
+    setAllTilesToUnlit(){
+        for(var y = 0; y < this.tileMapData.length; y++) {
+            for(var x = 0; x < this.tileMapData[y].length; x++) {
+                this.tileMapData[y][x].isLit = false;
+            }
+        }
+    }
+
     getStartPos(){
         for(var y = 0; y < this.tileMapData.length; y++) {
             for(var x = 0; x < this.tileMapData[y].length; x++) {
@@ -99,7 +108,7 @@ class Game{
         return null;
     }
 
-    getTileAtPos(x,y){
+    getTileAtPos(x, y){
         return this.tileMapData[y][x];
     }
 

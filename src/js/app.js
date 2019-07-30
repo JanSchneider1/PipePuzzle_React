@@ -43,16 +43,38 @@ class HUD extends React.Component{
 }
 
 class Tile extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            data: this.props.data
+        };
+    }
+
+    handleClick(){
+        console.log(this.props.x + " / " + this.props.y);
+        const tile = game.getTileAtPos(this.props.x, this.props.y);
+        this.setState({
+            data: tile
+        });
+        tile.rotateClockWise();
+        game.evaluateTileMap();
+        this.props.updateTileMapData();
+    }
+
     render() {
+        if (this.state.data.type === 'E' && this.state.data.isLit){
+            //alert('Stage cleared!');
+        }
         return (
             <div className={"tile " + this.applyRotationClass()}>
-                <img alt="Tile" src={this.getImgBasedOnType()}/>
+                <img onClick={this.handleClick} alt="Tile" src={this.getImgBasedOnType()}/>
             </div>
         );
     }
 
     applyRotationClass(){
-        switch (this.props.data.rotation) {
+        switch (this.state.data.rotation) {
             case 0:
                 return "rotate-0";
             case 1:
@@ -65,8 +87,8 @@ class Tile extends React.Component{
     }
 
     getImgBasedOnType(){
-        if (this.props.data.isLit){
-            switch(this.props.data.type){
+        if (this.state.data.isLit){
+            switch(this.state.data.type){
                 case '-':
                     return "/img/Empty_Tile.png";
                 case 'S':
@@ -84,7 +106,7 @@ class Tile extends React.Component{
             }
         }
         else{
-            switch(this.props.data.type){
+            switch(this.state.data.type){
                 case '-':
                     return "/img/Empty_Tile.png";
                 case 'S':
@@ -105,32 +127,44 @@ class Tile extends React.Component{
 }
 
 class Tilemap extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            tileMapData : this.props.tileMapData
+        };
+        this.updateTileMapData = this.updateTileMapData.bind(this);
+    }
+
+    updateTileMapData() {
+        this.setState({tileMapData: this.state.tileMapData});
+    };
+
     render() {
         return (
             <div className="tilemap container-fluid">
                 <div className="row">
-                    <Tile data={this.props.tileMapData[0][0]}/>
-                    <Tile data={this.props.tileMapData[0][1]}/>
-                    <Tile data={this.props.tileMapData[0][2]}/>
-                    <Tile data={this.props.tileMapData[0][3]}/>
-                    <Tile data={this.props.tileMapData[0][4]}/>
-                    <Tile data={this.props.tileMapData[0][5]}/>
+                    <Tile data={this.state.tileMapData[0][0]} x={0} y={0} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[0][1]} x={1} y={0} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[0][2]} x={2} y={0} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[0][3]} x={3} y={0} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[0][4]} x={4} y={0} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[0][5]} x={5} y={0} updateTileMapData={this.updateTileMapData}/>
                 </div>
                 <div className="row">
-                    <Tile data={this.props.tileMapData[1][0]}/>
-                    <Tile data={this.props.tileMapData[1][1]}/>
-                    <Tile data={this.props.tileMapData[1][2]}/>
-                    <Tile data={this.props.tileMapData[1][3]}/>
-                    <Tile data={this.props.tileMapData[1][4]}/>
-                    <Tile data={this.props.tileMapData[1][5]}/>
+                    <Tile data={this.state.tileMapData[1][0]} x={0} y={1} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[1][1]} x={1} y={1} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[1][2]} x={2} y={1} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[1][3]} x={3} y={1} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[1][4]} x={4} y={1} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[1][5]} x={5} y={1} updateTileMapData={this.updateTileMapData}/>
                 </div>
                 <div className="row">
-                    <Tile data={this.props.tileMapData[2][0]}/>
-                    <Tile data={this.props.tileMapData[2][1]}/>
-                    <Tile data={this.props.tileMapData[2][2]}/>
-                    <Tile data={this.props.tileMapData[2][3]}/>
-                    <Tile data={this.props.tileMapData[2][4]}/>
-                    <Tile data={this.props.tileMapData[2][5]}/>
+                    <Tile data={this.state.tileMapData[2][0]} x={0} y={2} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[2][1]} x={1} y={2} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[2][2]} x={2} y={2} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[2][3]} x={3} y={2} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[2][4]} x={4} y={2} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[2][5]} x={5} y={2} updateTileMapData={this.updateTileMapData}/>
                 </div>
             </div>
         );
@@ -139,6 +173,7 @@ class Tilemap extends React.Component{
 
 class GameUI extends React.Component{
     render() {
+        console.log(game.tileMapData);
         return (
             <div className="game">
                 <HUD/>
