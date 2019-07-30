@@ -2,13 +2,42 @@ const { TileData } = require("./_tiledata.js");
 
 class Game{
     constructor(){
-        this.tileMapData = [
+        this.tileMapData = this.generateTilemap();
+            /*[
             [new TileData("-", 0), new TileData("L", 0), new TileData("L", 0), new TileData("I", 0), new TileData("I", 0), new TileData("-", 0)],
             [new TileData("S", 0), new TileData("T", 0), new TileData("L", 0), new TileData("T", 0), new TileData("X", 0), new TileData("E", 2)],
             [new TileData("-", 0), new TileData("T", 0), new TileData("I", 0), new TileData("T", 0), new TileData("L", 0), new TileData("-", 0)],
-        ];
+        ];*/
         this.startPos = this.getStartPos();
         this.evaluateTileMap();
+    }
+
+    generateTilemap(){
+        return [
+            [new TileData("-", 0), this.randomTile(), this.randomTile(), this.randomTile(), this.randomTile(), new TileData("-", 0)],
+            [new TileData("S", 0), this.randomTile(), this.randomTile(), this.randomTile(), this.randomTile(), new TileData("E", 2)],
+            [new TileData("-", 0), this.randomTile(), this.randomTile(), this.randomTile(), this.randomTile(), new TileData("-", 0)]
+        ];
+    }
+
+    randomTile(){
+        const randomType = Math.floor(Math.random() * 100);
+        const randomRotation = Math.floor(Math.random() * 3);
+        let type;
+        let rotation;
+        switch (true) {
+            case (randomType < 30)  : type = 'I'; break;
+            case (randomType < 70)  : type = 'L'; break;
+            case (randomType < 90)  : type = 'T'; break;
+            case (randomType <= 100): type = 'X'; break;
+        }
+        switch (randomRotation) {
+            case 0: rotation = 0; break;
+            case 1: rotation = 1; break;
+            case 2: rotation = 2; break;
+            case 3: rotation = 3; break;
+        }
+        return new TileData(type, rotation);
     }
 
     evaluateTileMap() {
