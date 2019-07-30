@@ -138,26 +138,71 @@ test("Return null when try to get start pos on empty tilemap", () => {
     expect(game.getStartPos()).toEqual(null);
 });
 
-test("Rekursive traversing through neighbored matching tiles does terminate", () => {
-    expect(game.evaluateTileMap());
+test("Evaluating tilemap does lit up correct tiles", () => {
+    // Given
+    game.tileMapData = [
+        [new TileData("-", 0), new TileData("I", 0), new TileData("-", 0)],
+        [new TileData("S", 0), new TileData("X", 0), new TileData("E", 2)],
+        [new TileData("-", 0), new TileData("L", 0), new TileData("-", 0)],
+    ];
+    // When
+    game.evaluateTileMap();
+    // Then
+    expect(game.getTileAtPos(0,0).isLit).toBe(false);
+    expect(game.getTileAtPos(1,0).isLit).toBe(false);
+    expect(game.getTileAtPos(2,0).isLit).toBe(false);
+
+    expect(game.getTileAtPos(0,1).isLit).toBe(true);
+    expect(game.getTileAtPos(1,1).isLit).toBe(true);
+    expect(game.getTileAtPos(2,1).isLit).toBe(true);
+
+    expect(game.getTileAtPos(0,2).isLit).toBe(false);
+    expect(game.getTileAtPos(1,2).isLit).toBe(true);
+    expect(game.getTileAtPos(2,2).isLit).toBe(false);
 });
 
-function bla(p, visited){
-    for (let v in visited){
-        if (v[0] === p[0] && v[1] === p[0]){
-            return true;
-        }
-    }
-    return false;
-}
+test("Evaluating tilemap does lit up correct tiles", () => {
+    // Given
+    game.tileMapData = [
+        [new TileData("X", 0), new TileData("X", 0), new TileData("X", 0)],
+        [new TileData("S", 0), new TileData("X", 0), new TileData("X", 2)],
+        [new TileData("X", 0), new TileData("X", 0), new TileData("X", 0)],
+    ];
+    // When
+    game.evaluateTileMap();
+    // Then
+    expect(game.getTileAtPos(0,0).isLit).toBe(true);
+    expect(game.getTileAtPos(1,0).isLit).toBe(true);
+    expect(game.getTileAtPos(2,0).isLit).toBe(true);
 
-test("Rekursive traversing through neighbored matching tiles does terminate", () => {
+    expect(game.getTileAtPos(0,1).isLit).toBe(true);
+    expect(game.getTileAtPos(1,1).isLit).toBe(true);
+    expect(game.getTileAtPos(2,1).isLit).toBe(true);
 
-    let visited = [[0,1],[1,1],[2,1],[0,1]];
-    let pos = [[2,1],[0,1]];
-    let toVisit = pos.filter(p => bla(p, visited));
-
-    expect(toVisit).toEqual([]);
+    expect(game.getTileAtPos(0,2).isLit).toBe(true);
+    expect(game.getTileAtPos(1,2).isLit).toBe(true);
+    expect(game.getTileAtPos(2,2).isLit).toBe(true);
 });
 
+test("Evaluating tilemap does lit up correct tiles", () => {
+    // Given
+    game.tileMapData = [
+        [new TileData("X", 0), new TileData("I", 1), new TileData("-", 0)],
+        [new TileData("S", 0), new TileData("X", 0), new TileData("T", 0)],
+        [new TileData("X", 0), new TileData("I", 1), new TileData("L", 0)],
+    ];
+    // When
+    game.evaluateTileMap();
+    // Then
+    expect(game.getTileAtPos(0,0).isLit).toBe(false);
+    expect(game.getTileAtPos(1,0).isLit).toBe(true);
+    expect(game.getTileAtPos(2,0).isLit).toBe(false);
 
+    expect(game.getTileAtPos(0,1).isLit).toBe(true);
+    expect(game.getTileAtPos(1,1).isLit).toBe(true);
+    expect(game.getTileAtPos(2,1).isLit).toBe(true);
+
+    expect(game.getTileAtPos(0,2).isLit).toBe(false);
+    expect(game.getTileAtPos(1,2).isLit).toBe(true);
+    expect(game.getTileAtPos(2,2).isLit).toBe(true);
+});

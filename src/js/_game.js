@@ -27,8 +27,7 @@ class Game{
                 if (v[0] === pos[0] && v[1] === pos[1]){
                     return false;
                 }
-            }
-            return true;
+            } return true;
         });
         if (positionsToVisit.length === 0) {return true;}
         positionsToVisit.forEach(pos => this.evaluateTileAtPos(pos[0], pos[1], visited));
