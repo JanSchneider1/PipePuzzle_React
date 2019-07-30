@@ -1,4 +1,5 @@
 const { TileData } = require("./_tiledata.js");
+const { Generator } = require("./_generator.js");
 
 class Game{
     constructor(){
