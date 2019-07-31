@@ -29,9 +29,9 @@ test("Creating Generator with width = 3 and height = 3 creates new generator wit
 test("Test if creating createTemplate creates expected 2D-Array", () => {
     expect(generator6By3.createTemplate()).toEqual(
         [
-            [new TileData('-', 0), undefined, undefined, undefined, undefined, new TileData('-', 0)],
-            [new TileData('S', 0), undefined, undefined, undefined, undefined, new TileData('E', 2)],
-            [new TileData('-', 0), undefined, undefined, undefined, undefined, new TileData('-', 0)]
+            [new TileData('-', 0), null, null, null, null, new TileData('-', 0)],
+            [new TileData('S', 0), null, null, null, null, new TileData('E', 2)],
+            [new TileData('-', 0), null, null, null, null, new TileData('-', 0)]
         ]
     );
 });
@@ -75,29 +75,29 @@ describe('Test if getting random move returns a valid move with valid arguments'
 describe('Test getting straight tiles', () => {
     test("Getting X-Tile if random is in range", () => {
         Math.random = jest.fn(() => 0.09);
-        expect(Generator.getRandomStraightTile()).toEqual(new TileData('X', 0));
+        expect(Generator.randomStraightTile()).toEqual(new TileData('X', 0));
     });
     test("Getting T-Tile if random is in range", () => {
         Math.random = jest.fn(() => 0.29);
-        expect(Generator.getRandomStraightTile()).toEqual(new TileData('T', 0));
+        expect(Generator.randomStraightTile()).toEqual(new TileData('T', 0));
     });
     test("Getting I-Tile if random is in range", () => {
         Math.random = jest.fn(() => 0.9);
-        expect(Generator.getRandomStraightTile()).toEqual(new TileData('I', 0));
+        expect(Generator.randomStraightTile()).toEqual(new TileData('I', 0));
     });
 });
 
 describe('Test getting angular tiles', () => {
     test("Getting X-Tile if random is in range", () => {
         Math.random = jest.fn(() => 0.09);
-        expect(Generator.getRandomAngularTile()).toEqual(new TileData('X', 0));
+        expect(Generator.randomAngularTile()).toEqual(new TileData('X', 0));
     });
     test("Getting T-Tile if random is in range", () => {
         Math.random = jest.fn(() => 0.29);
-        expect(Generator.getRandomAngularTile()).toEqual(new TileData('T', 0));
+        expect(Generator.randomAngularTile()).toEqual(new TileData('T', 0));
     });
     test("Getting L-Tile if random is in range", () => {
         Math.random = jest.fn(() => 0.9);
-        expect(Generator.getRandomAngularTile()).toEqual(new TileData('L', 0));
+        expect(Generator.randomAngularTile()).toEqual(new TileData('L', 0));
     });
 });
