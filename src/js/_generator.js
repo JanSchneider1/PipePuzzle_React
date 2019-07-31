@@ -26,6 +26,7 @@ class Generator{
     generate(){
         var tilemap = this.createTemplate();
         this.createRandomSolution(tilemap);
+        this.fillup(tilemap);
         return tilemap;
     }
 
@@ -35,7 +36,7 @@ class Generator{
         for (let y=0; y<this.height; y++){
             tilemap.push([]);
             for (let x=0; x<this.width; x++){
-                tilemap[y].push(new TileData('-', 0));
+                tilemap[y].push(null);
             }
         }
         // Generate first and last column
@@ -65,16 +66,11 @@ class Generator{
         let currentDirection = 'right';
         let nextDirection = Generator.randomDirection(20, 40, 40);
         while(this.endPos[0] - currentPos[0] !== 1) {
-            console.log("Current: " + currentPos);
-            console.log("Dir:" + currentDirection);
-            console.log("NextDir: " + nextDirection);
             // Check for out of bounds
             if (nextDirection === 'up' && currentPos[1]-1 < 0){
-                console.log("Ok, out of bounds! UP");
                 nextDirection= 'right';
             }
             else if (nextDirection === 'down' && currentPos[1]+1 >= this.height){
-                console.log("Ok, out of bounds! DOWN");
                 nextDirection = 'right';
             }
             // Set tile
@@ -97,25 +93,64 @@ class Generator{
                 nextDirection = Generator.randomDirection(40, 0, 60);
             }
         }
+        // Last column
+        if (currentPos[1] === this.endPos[1]) {
+            tilemap[currentPos[1]][currentPos[0]] = Generator.getRandomStraightTile();
+        }
+        else{
+            tilemap[currentPos[1]][currentPos[0]] = Generator.getRandomAngularTile();
+            while (this.endPos[1] === currentPos[1]){
+                if (this.endPos[1] > currentPos[1]) {
+                    currentPos[1]++;
+                }
+                else if(this.endPos[1] < currentPos[1]){
+                    currentPos[1]--;
+                }
+                tilemap[currentPos[1]][currentPos[0]] = Generator.getRandomStraightTile();
+            }
+            tilemap[this.endPos[1]][this.endPos[0]-1] = Generator.getRandomAngularTile();
+        }
         return tilemap;
     }
 
     static getRandomStraightTile(){
-        console.log("Straight Tile");
         const random = Math.random() * 100;
         switch (true) {
-            case (random < 10): return new TileData('X', 0);
-            case (random < 40): return new TileData('T', 0);
+            case (random < 5): return new TileData('X', 0);
+            case (random < 15): return new TileData('T', 0);
             case (random < 100): return new TileData('I', 0);
         }
     }
 
     static getRandomAngularTile(){
-        console.log("Angular Tile");
+        const random = Math.random() * 100;
+        switch (true) {
+            case (random < 5): return new TileData('X', 0);
+            case (random < 15): return new TileData('T', 0);
+            case (random < 100): return new TileData('L', 0);
+        }
+    }
+
+    static randomRotation(){
+        const randomRotation = Math.floor(Math.random() * 3);
+        switch (randomRotation) {
+            case 0:
+                return 1;
+            case 1:
+                return 2;
+            case 2:
+                return 3;
+            case 3:
+                return 4
+        }
+    }
+
+    static getRandomTile(){
         const random = Math.random() * 100;
         switch (true) {
             case (random < 10): return new TileData('X', 0);
-            case (random < 40): return new TileData('T', 0);
+            case (random < 30): return new TileData('T', 0);
+            case (random < 65): return new TileData('I', 0);
             case (random < 100): return new TileData('L', 0);
         }
     }
@@ -136,16 +171,21 @@ class Generator{
         throw Error ("Falling through switch while using random number");
     }
 
-    buildPathWithRandomTiles(tilemap, path){
-
-    }
-
     fillup(tilemap){
-
+        for(var y = 0; y < tilemap.length; y++) {
+            for(var x = 0; x < tilemap[y].length; x++) {
+                if (tilemap[y][x] === null)
+                    tilemap[y][x] = Generator.getRandomTile();
+            }
+        }
     }
 
     shuffle(tilemap){
-
+        for(var y = 0; y < tilemap.length; y++) {
+            for(var x = 0; x < tilemap[y].length; x++) {
+                tilemap[y][x].rotation = Generator.randomRotation();
+            }
+        }
     }
 }
 
