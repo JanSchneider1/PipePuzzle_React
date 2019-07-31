@@ -14,11 +14,14 @@ class Game{
     }
 
     generateTilemap(){
-        return [
+
+        return new Generator(6, 3).generate();
+
+        /*[
             [new TileData("-", 0), this.randomTile(), this.randomTile(), this.randomTile(), this.randomTile(), new TileData("-", 0)],
             [new TileData("S", 0), this.randomTile(), this.randomTile(), this.randomTile(), this.randomTile(), new TileData("E", 2)],
             [new TileData("-", 0), this.randomTile(), this.randomTile(), this.randomTile(), this.randomTile(), new TileData("-", 0)]
-        ];
+        ];*/
     }
 
     randomTile(){
