@@ -204,6 +204,7 @@ class Generator{
                     tilemap[y][x] = this.randomTile();
             }
         }
+        return tilemap;
     }
 
     static shuffle(tilemap){

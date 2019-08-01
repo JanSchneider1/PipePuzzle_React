@@ -37,42 +37,6 @@ test("Test if creating createTemplate creates expected 2D-Array", () => {
     );
 });
 
-/*
-describe('Test if getting random move returns a valid move with valid arguments', () => {
-    test("Getting random move with 100% right returns [1,0]", () => {
-        expect(Generator.randomDirection(100, 0, 0)).toEqual([1,0]);
-    });
-    test("Getting random move with 100% up returns [0,-1]", () => {
-        expect(Generator.randomDirection(0, 100, 0)).toEqual([0,-1]);
-    });
-    test("Getting random move with 100% down returns [0,1]", () => {
-        expect(Generator.randomDirection(0, 0, 100)).toEqual([0,1]);
-    });
-    test("Getting random move with sum of rates unequal to 100% throws error", () => {
-        expect(() => {Generator.randomDirection(0, 10, 30)}).toThrowError();
-    });
-    test("Getting random move with negative rates throws error", () => {
-        expect(() => {Generator.randomDirection(-1, 99, 2)}).toThrowError();
-    });
-    test("Getting random move throws error if random number is equal to 1", () => {
-        Math.random = jest.fn(() => 1);
-        expect(() => {Generator.randomDirection(30, 30, 40)}).toThrowError();
-    });
-    test("Getting random move return [1,0] if random number is in range", () => {
-        Math.random = jest.fn(() => 0.29);
-        expect(Generator.randomDirection(30, 30, 40)).toEqual([1,0]);
-    });
-    test("Getting random move return [0,-1] if random number is in range", () => {
-        Math.random = jest.fn(() => 0.59);
-        expect(Generator.randomDirection(30, 30, 40)).toEqual([0,-1]);
-    });
-    test("Getting random move return [0,-1] if random number is in range", () => {
-        Math.random = jest.fn(() => 0.89);
-        expect(Generator.randomDirection(30, 30, 40)).toEqual([0,1]);
-    });
-});
-*/
-
 describe('Test getting random tile return random tile', () => {
     test("Getting X-Tile if random is in range", () => {
         Random.randomInt = jest.fn(() => 0);
@@ -141,17 +105,16 @@ describe('Test getting random rotation return random rotation', () => {
     });
 });
 
-/*
 test("Filling up tile map results in an array without containing null elements if given tile map with null elements", () => {
     generator6By3.randomTile = jest.fn(() => new TileData('-', 0));
     let tilemap = [
-        [null, null, null],
-        [null, null, null],
-        [null, null, null],
+        [new TileData('T', 0), null, null],
+        [new TileData('S', 0), null, null],
+        [new TileData('L', 0), null, null],
     ];
     expect(generator6By3.fillUp(tilemap)).toEqual([
-        [null, null, null],
-        [null, null, null],
-        [null, null, null],
+        [new TileData('T', 0), new TileData('-', 0), new TileData('-', 0)],
+        [new TileData('S', 0), new TileData('-', 0), new TileData('-', 0)],
+        [new TileData('L', 0), new TileData('-', 0), new TileData('-', 0)],
     ]);
-});*/
+});
