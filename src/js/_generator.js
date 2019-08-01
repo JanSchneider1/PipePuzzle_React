@@ -164,30 +164,32 @@ class Generator{
         }
     }
 
-    randomDirection(currentDirection){
-        let random;
-        switch (currentDirection){
-            case 'right':
-                random = Random.randomInt(
-                    this.probabilities.rightAfterRight,
-                    (1-this.probabilities.rightAfterRight)/2,
-                    (1-this.probabilities.rightAfterRight)/2);
-                break;
-            case 'up':
-                random = Random.randomInt(
-                    this.probabilities.right,
-                    0,
-                    (1-this.probabilities.right)
-                );
-                break;
-            case 'down':
-                random = Random.randomInt(
-                    this.probabilities.right,
-                    (1-this.probabilities.right),
-                    0
-                );
-                break;
+    getProbabilityRightForDirection(direction){
+        return direction === 'right' ? this.probabilities.rightAfterRight : this.probabilities.right;
+    }
+
+    getProbabilityUpForDirection(direction){
+        switch (direction) {
+            case 'right': return (1 - this.probabilities.rightAfterRight)/2;
+            case 'up': return 1 - this.probabilities.right;
+            case 'down': return 0;
         }
+    }
+
+    getProbabilityDownForDirection(direction){
+        switch (direction) {
+            case 'right': return (1 - this.probabilities.rightAfterRight)/2;
+            case 'up': return 0;
+            case 'down': return 1 - this.probabilities.right;
+        }
+    }
+
+    randomDirection(currentDirection){
+        let random = Random.randomInt(
+            this.getProbabilityRightForDirection(currentDirection),
+            this.getProbabilityUpForDirection(currentDirection),
+            this.getProbabilityDownForDirection(currentDirection)
+        );
         switch (random) {
             case 0: return 'right';
             case 1: return 'up';
