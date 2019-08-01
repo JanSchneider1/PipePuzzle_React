@@ -1,4 +1,5 @@
 const { TileData } = require("./_tiledata.js");
+const Random = require("./_random.js");
 
 class Generator{
     constructor(width, height){
@@ -10,7 +11,18 @@ class Generator{
         }
         this.width = width;
         this.height = height;
-        this.probabilities = {x : 5, t : 10, li: 85, updown: 80, right: 20};
+        this.probabilities = {
+            // Probability for X-Tiles
+            x : 0.05,
+            // Probability for T-Tiles
+            t : 0.1,
+            // Probability for L-Tiles & I-Tiles
+            l_i: 0.85,
+            // Probability to go right
+            right: 0.4,
+            // Probability to go right after going right
+            rightAfterRight: 0.2
+        };
     }
 
     generate(){
@@ -19,7 +31,7 @@ class Generator{
          * And also filling in Start- and End-tile (and '-' tiles)
          * Other tiles in the array are instantiated with null */
         var tilemap = this.createTemplate();
-        /* Makes shure that tilemap has at least one possible solution.
+        /* Makes sure that tilemap has at least one possible solution.
          * Places tiles according to a custom algorithm to form a random solution. */
         this.createRandomSolution(tilemap);
         // Fills up each tile that is still equal to null with a random tile
@@ -61,11 +73,15 @@ class Generator{
         if (this.endPos[0] < this.startPos[0]){
             throw Error(`Start-Pos(${this.startPos}) should be on the left of End-Pos(${this.endPos})`);
         }
+        // The position where we want to find a good tile for (start next from startPos)
         let currentPos = [this.startPos[0]+1, this.startPos[1]];
+        // The direction we are coming from
         let currentDirection = 'right';
-        let nextDirection = this.randomDirection(20, 40, 40);
+        // The direction we are trying to go (randomized)
+        let nextDirection = this.randomDirection(0.2, 0.4, 0.4);
+        // Loop through until we want to figure out the tile before the end pos in the last column
         while(this.endPos[0] - currentPos[0] !== 1) {
-            // Check for out of bounds
+            // Check for out of bounds -> just go right
             if (nextDirection === 'up' && currentPos[1]-1 < 0){
                 nextDirection= 'right';
             }
@@ -76,28 +92,33 @@ class Generator{
             tilemap[currentPos[1]][currentPos[0]] =
                 (currentDirection === nextDirection) ? this.randomStraightTile() : this.randomAngularTile();
 
+            // Prepare next step
             currentDirection = nextDirection;
 
-            // Goto new position
+            // Goto new position and determine next pos
             if (currentDirection === 'right'){
                 currentPos[0]++;
-                nextDirection = this.randomDirection(20, 40, 40);
+                nextDirection = this.randomDirection(0.2, 0.4, 0.4);
             }
             else if(currentDirection === 'up'){
                 currentPos[1]--;
-                nextDirection = this.randomDirection(40, 60, 0);
+                nextDirection = this.randomDirection(0.4, 0.6, 0);
             }
             else if(currentDirection === 'down'){
                 currentPos[1]++;
-                nextDirection = this.randomDirection(40, 0, 60);
+                nextDirection = this.randomDirection(0.4, 0, 0.6);
             }
         }
-        // Last column
+        // Find way to end pos in last column
+
+        // Go straight if no turning necessary
         if (currentPos[1] === this.endPos[1]) {
             tilemap[currentPos[1]][currentPos[0]] = this.randomStraightTile();
         }
         else{
+            // First tile must be angular as we go up or down
             tilemap[currentPos[1]][currentPos[0]] = this.randomAngularTile();
+            // Go up / down until we are on the same level as endPos
             while (this.endPos[1] === currentPos[1]){
                 if (this.endPos[1] > currentPos[1]) {
                     currentPos[1]++;
@@ -107,53 +128,52 @@ class Generator{
                 }
                 tilemap[currentPos[1]][currentPos[0]] = this.randomStraightTile();
             }
+            // Last tile is angular as we come from above / below
             tilemap[this.endPos[1]][this.endPos[0]-1] = this.randomAngularTile();
         }
         return tilemap;
     }
 
     randomStraightTile(){
-        const random = Math.random() * 100;
-        switch (true) {
-            case (random < this.probabilities.x): return new TileData('X', 0);
-            case (random < 15): return new TileData('T', 0);
-            case (random < 100): return new TileData('I', 0);
+        const random = Random.randomInt(this.probabilities.x, this.probabilities.t, this.probabilities.l_i);
+        switch (random) {
+            case 0: return new TileData('X', 0);
+            case 1: return new TileData('T', 0);
+            case 2: return new TileData('I', 0);
         }
     }
 
     randomAngularTile(){
-        const random = Math.random() * 100;
-        switch (true) {
-            case (random < 5): return new TileData('X', 0);
-            case (random < 15): return new TileData('T', 0);
-            case (random < 100): return new TileData('L', 0);
+        const random = Random.randomInt(this.probabilities.x, this.probabilities.t, this.probabilities.l_i);
+        switch (random) {
+            case 0: return new TileData('X', 0);
+            case 1: return new TileData('T', 0);
+            case 2: return new TileData('L', 0);
         }
     }
 
     randomTile(){
-        const random = Math.random() * 100;
-        switch (true) {
-            case (random < 10): return new TileData('X', 0);
-            case (random < 30): return new TileData('T', 0);
-            case (random < 65): return new TileData('I', 0);
-            case (random < 100): return new TileData('L', 0);
+        const random = Random.randomInt(
+            this.probabilities.x,
+            this.probabilities.t,
+            (this.probabilities.l_i / 2),
+            (this.probabilities.l_i / 2)
+        );
+        switch (random) {
+            case 0: return new TileData('X', 0);
+            case 1: return new TileData('T', 0);
+            case 2: return new TileData('I', 0);
+            case 3: return new TileData('L', 0);
         }
     }
 
-    randomDirection(rateOfRight, rateOfUp, rateOfDown){
-        if (rateOfRight < 0 || rateOfUp < 0 || rateOfDown < 0){
-            throw Error(`RateOfRight = ${rateOfRight}, rateOfUp = ${rateOfUp} and rateOfDown = ${rateOfDown} cannot be negative`);
+    randomDirection(right, up, down){
+        const random = Random.randomInt(right, up, down);
+        switch (random) {
+            case 0: return 'right';
+            case 1: return 'up';
+            case 2: return 'down';
         }
-        if (rateOfRight + rateOfUp + rateOfDown !== 100){
-            throw Error(`Sum of rateOfRight = ${rateOfRight}, rateOfUp = ${rateOfUp} and rateOfDown = ${rateOfDown} must be equal to 100`);
-        }
-        const random = Math.random() * 100;
-        switch (true) {
-            case (random < rateOfRight): return 'right';
-            case (random < (rateOfRight + rateOfUp)): return 'up';
-            case (random < (rateOfRight + rateOfUp + rateOfDown)): return 'down';
-        }
-        throw Error ("Falling through switch while using random number");
     }
 
     fillUp(tilemap){
@@ -176,17 +196,7 @@ class Generator{
     }
 
     static randomRotation(){
-        const randomRotation = Math.floor(Math.random() * 3);
-        switch (randomRotation) {
-            case 0:
-                return 1;
-            case 1:
-                return 2;
-            case 2:
-                return 3;
-            case 3:
-                return 4
-        }
+        return Math.floor(Math.random() * 4);
     }
 }
 
