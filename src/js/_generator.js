@@ -78,7 +78,7 @@ class Generator{
         // The direction we are coming from
         let currentDirection = 'right';
         // The direction we are trying to go (randomized)
-        let nextDirection = this.randomDirection(0.2, 0.4, 0.4);
+        let nextDirection = this.randomDirection(currentDirection);
         // Loop through until we want to figure out the tile before the end pos in the last column
         while(this.endPos[0] - currentPos[0] !== 1) {
             // Check for out of bounds -> just go right
@@ -94,19 +94,16 @@ class Generator{
 
             // Prepare next step
             currentDirection = nextDirection;
-
+            nextDirection = this.randomDirection(currentDirection);
             // Goto new position and determine next pos
             if (currentDirection === 'right'){
                 currentPos[0]++;
-                nextDirection = this.randomDirection(0.2, 0.4, 0.4);
             }
             else if(currentDirection === 'up'){
                 currentPos[1]--;
-                nextDirection = this.randomDirection(0.4, 0.6, 0);
             }
             else if(currentDirection === 'down'){
                 currentPos[1]++;
-                nextDirection = this.randomDirection(0.4, 0, 0.6);
             }
         }
         // Find way to end pos in last column
@@ -167,8 +164,30 @@ class Generator{
         }
     }
 
-    randomDirection(right, up, down){
-        const random = Random.randomInt(right, up, down);
+    randomDirection(currentDirection){
+        let random;
+        switch (currentDirection){
+            case 'right':
+                random = Random.randomInt(
+                    this.probabilities.rightAfterRight,
+                    (1-this.probabilities.rightAfterRight)/2,
+                    (1-this.probabilities.rightAfterRight)/2);
+                break;
+            case 'up':
+                random = Random.randomInt(
+                    this.probabilities.right,
+                    0,
+                    (1-this.probabilities.right)
+                );
+                break;
+            case 'down':
+                random = Random.randomInt(
+                    this.probabilities.right,
+                    (1-this.probabilities.right),
+                    0
+                );
+                break;
+        }
         switch (random) {
             case 0: return 'right';
             case 1: return 'up';
