@@ -10,7 +10,7 @@ class Game{
 
     generateTilemap(){
         //return new Generator(6, 3).generate();
-        return new Generator(9, 5).generate();
+        return new Generator(12, 7).generate();
     }
 
     evaluateTileMap() {
