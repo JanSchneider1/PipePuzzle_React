@@ -9,10 +9,21 @@ class TurnCounter extends React.Component{
 }
 
 class Timer extends React.Component{
+    componentDidMount(){
+        this.clock = setInterval(
+            () => this.props.onTimerTick(),
+            1000
+        );
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.clock);
+    }
+
     render() {
         return (
             <div className="hud-timer col-4">
-                3:00
+                {this.props.timer.minutes}:{this.props.timer.seconds}
             </div>
         );
     }
@@ -34,7 +45,7 @@ class HUD extends React.Component{
             <div className="hud container-fluid">
                 <div className="row">
                     <TurnCounter turns={this.props.turns}/>
-                    <Timer/>
+                    <Timer timer={this.props.timer} onTimerTick={this.props.onTimerTick}/>
                     <StageCounter stage={this.props.stage}/>
                 </div>
             </div>
@@ -159,9 +170,14 @@ class GameUI extends React.Component{
             stage: 1,
             normalAtStage: 2,
             hardAtStage: 5,
+            timer: {
+                seconds: 0,
+                minutes: 3,
+            }
         };
         this.onStageComplete = this.onStageComplete.bind(this);
         this.onTileClick = this.onTileClick.bind(this);
+        this.onTimerTick = this.onTimerTick.bind(this);
     }
 
     onTileClick(x, y){
@@ -177,6 +193,33 @@ class GameUI extends React.Component{
                 turns: ++this.state.turns
             }));
         }
+    }
+
+    onLose(){
+        alert("GAME OVER");
+    }
+
+    onTimerTick(){
+        let minutes = parseInt(this.state.timer.minutes);
+        let seconds = parseInt(this.state.timer.seconds);
+        if (seconds-1 < 0){
+            if (minutes === 0){
+                this.onLose();
+            }
+            else{
+                minutes--;
+                seconds = 59;
+            }
+        }
+        else{
+            seconds = seconds < 9 ? `0${seconds-1}` : seconds-1;
+        }
+        this.setState((state) => ({
+            timer:{
+                seconds: seconds,
+                minutes: minutes
+            }
+        }));
     }
 
     onStageComplete(){
@@ -204,6 +247,8 @@ class GameUI extends React.Component{
             <div className="game">
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
+                     timer={this.state.timer}
+                     onTimerTick={this.onTimerTick}
                 />
                 <Tilemap tileMapData={this.state.game.tileMapData}
                          onStageComplete={this.onStageComplete}
