@@ -2,7 +2,7 @@ class TurnCounter extends React.Component{
     render() {
         return (
             <div className="hud-turn-counter col-4">
-                10
+                {this.props.turns}
             </div>
         );
     }
@@ -22,7 +22,7 @@ class StageCounter extends React.Component{
     render() {
         return (
             <div className="hud-stage-counter col-4">
-                1
+                {this.props.stage}
             </div>
         );
     }
@@ -33,9 +33,9 @@ class HUD extends React.Component{
         return (
             <div className="hud container-fluid">
                 <div className="row">
-                    <TurnCounter/>
+                    <TurnCounter turns={this.props.turns}/>
                     <Timer/>
-                    <StageCounter/>
+                    <StageCounter stage={this.props.stage}/>
                 </div>
             </div>
         );
@@ -53,7 +53,6 @@ class Tile extends React.Component{
         tile.rotateClockWise();
         game.evaluateTileMap();
         if (game.isSolved){
-            console.log("Finished");
             this.props.nextStage();
         }
         else{
@@ -126,7 +125,7 @@ class Tilemap extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            tileMapData : this.props.tileMapData
+            tileMapData: this.props.tileMapData
         };
         this.updateTileMapData = this.updateTileMapData.bind(this);
         this.nextStage = this.nextStage.bind(this);
@@ -134,7 +133,7 @@ class Tilemap extends React.Component{
 
     updateTileMapData() {
         this.setState({
-                tileMapData: this.state.tileMapData
+            tileMapData: this.state.tileMapData
         });
     };
 
@@ -143,6 +142,7 @@ class Tilemap extends React.Component{
         this.setState({
             tileMapData: game.tileMapData
         });
+        this.props.onStageComplete();
     }
 
     createTiles(){
@@ -150,9 +150,8 @@ class Tilemap extends React.Component{
         for (let y=0; y < this.state.tileMapData.length; y++){
             let tiles = [];
             for (let x=0; x < this.state.tileMapData[y].length; x++){
-                console.log(this.state.tileMapData[y][x].type);
                 tiles.push(
-                    <Tile data={this.state.tileMapData[y][x]} x={x} y={y} updateTileMapData={this.updateTileMapData} nextStage={this.nextStage}/>
+                    <Tile turns={this.props.turns} data={this.state.tileMapData[y][x]} x={x} y={y} updateTileMapData={this.updateTileMapData} nextStage={this.nextStage}/>
                 );
             }
             rows.push(
@@ -174,11 +173,38 @@ class Tilemap extends React.Component{
 }
 
 class GameUI extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            game: new Game(),
+            turns: 0,
+            stage: 1
+        };
+        this.onStageComplete = this.onStageComplete.bind(this);
+    }
+
+    increaseTurns(){
+
+    }
+
+    onStageComplete(){
+        this.setState((state) => ({
+            turns: 0,
+            stage: ++this.state.stage
+        }));
+    }
+
     render() {
         return (
             <div className="game">
-                <HUD/>
-                <Tilemap tileMapData={this.props.tileMapData}/>
+                <HUD turns={this.state.turns}
+                     stage={this.state.stage}
+                />
+                <Tilemap turns={this.state.turns}
+                         stage={this.state.stage}
+                         onStageComplete={this.onStageComplete}
+                         tileMapData={this.props.tileMapData}
+                />
             </div>
         );
     }
