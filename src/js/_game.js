@@ -2,16 +2,16 @@ const { TileData } = require("./_tiledata.js");
 const { Generator } = require("./_generator.js");
 
 class Game{
-    constructor(){
+    constructor(width, height){
         this.isSolved = false;
-        this.tileMapData = this.generateTilemap();
+        this.tileMapData = this.generateTilemap(width, height);
         this.startPos = this.getStartPos();
         this.endPos = this.getEndPos();
         this.evaluateTileMap();
     }
 
-    generateTilemap(){
-        return new Generator(6, 3).generate();
+    generateTilemap(width, height){
+        return new Generator(width, height).generate();
     }
 
     evaluateTileMap() {

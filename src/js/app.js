@@ -125,8 +125,7 @@ class Tilemap extends React.Component{
             let tiles = [];
             for (let x=0; x < this.props.tileMapData[y].length; x++){
                 tiles.push(
-                    <Tile turns={this.props.turns}
-                          data={this.props.tileMapData[y][x]}
+                    <Tile data={this.props.tileMapData[y][x]}
                           x={x}
                           y={y}
                           onTileClick={this.props.onTileClick}
@@ -155,16 +154,14 @@ class GameUI extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            game: new Game(),
+            game: new Game(6, 3),
             turns: 0,
-            stage: 1
+            stage: 1,
+            normalAtStage: 2,
+            hardAtStage: 5,
         };
         this.onStageComplete = this.onStageComplete.bind(this);
         this.onTileClick = this.onTileClick.bind(this);
-    }
-
-    increaseTurns(){
-
     }
 
     onTileClick(x, y){
@@ -176,16 +173,29 @@ class GameUI extends React.Component{
         }
         else{
             this.setState((state) => ({
-                game: this.state.game
+                game: this.state.game,
+                turns: ++this.state.turns
             }));
         }
     }
 
     onStageComplete(){
+        // Generate stage of size based on current difficulty
+        let nextGame;
+        if (this.state.stage + 1 > this.state.hardAtStage){
+            nextGame = new Game(12, 7);
+        }
+        else if (this.state.stage + 1 > this.state.normalAtStage){
+            nextGame = new Game(9, 5);
+        }
+        else {
+            nextGame = new Game(6, 3);
+        }
+
         this.setState((state) => ({
             turns: 0,
             stage: ++this.state.stage,
-            game: new Game()
+            game: nextGame
         }));
     }
 
@@ -195,10 +205,8 @@ class GameUI extends React.Component{
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
                 />
-                <Tilemap turns={this.state.turns}
-                         stage={this.state.stage}
+                <Tilemap tileMapData={this.state.game.tileMapData}
                          onStageComplete={this.onStageComplete}
-                         tileMapData={this.state.game.tileMapData}
                          onTileClick={this.onTileClick}
                 />
             </div>
@@ -206,6 +214,5 @@ class GameUI extends React.Component{
     }
 }
 //=================================================================
-const { TileData } = require("./_tiledata.js");
 const { Game } = require("./_game.js");
 ReactDOM.render(<GameUI/>, document.getElementById('app'));
