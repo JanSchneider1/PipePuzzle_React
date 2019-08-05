@@ -49,15 +49,7 @@ class Tile extends React.Component{
     }
 
     handleClick(){
-        const tile = game.getTileAtPos(this.props.x, this.props.y);
-        tile.rotateClockWise();
-        game.evaluateTileMap();
-        if (game.isSolved){
-            this.props.nextStage();
-        }
-        else{
-            this.props.updateTileMapData();
-        }
+        this.props.onTileClick(this.props.x, this.props.y);
     }
 
     render() {
@@ -66,6 +58,7 @@ class Tile extends React.Component{
                 <img onClick={this.handleClick} alt="Tile" src={this.getImgBasedOnType()}/>
             </div>
         );
+
     }
 
     applyRotationClass(){
@@ -124,34 +117,20 @@ class Tile extends React.Component{
 class Tilemap extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            tileMapData: this.props.tileMapData
-        };
-        this.updateTileMapData = this.updateTileMapData.bind(this);
-        this.nextStage = this.nextStage.bind(this);
-    }
-
-    updateTileMapData() {
-        this.setState({
-            tileMapData: this.state.tileMapData
-        });
-    };
-
-    nextStage(){
-        game = new Game();
-        this.setState({
-            tileMapData: game.tileMapData
-        });
-        this.props.onStageComplete();
     }
 
     createTiles(){
         const rows = [];
-        for (let y=0; y < this.state.tileMapData.length; y++){
+        for (let y=0; y < this.props.tileMapData.length; y++){
             let tiles = [];
-            for (let x=0; x < this.state.tileMapData[y].length; x++){
+            for (let x=0; x < this.props.tileMapData[y].length; x++){
                 tiles.push(
-                    <Tile turns={this.props.turns} data={this.state.tileMapData[y][x]} x={x} y={y} updateTileMapData={this.updateTileMapData} nextStage={this.nextStage}/>
+                    <Tile turns={this.props.turns}
+                          data={this.props.tileMapData[y][x]}
+                          x={x}
+                          y={y}
+                          onTileClick={this.props.onTileClick}
+                    />
                 );
             }
             rows.push(
@@ -181,16 +160,32 @@ class GameUI extends React.Component{
             stage: 1
         };
         this.onStageComplete = this.onStageComplete.bind(this);
+        this.onTileClick = this.onTileClick.bind(this);
     }
 
     increaseTurns(){
 
     }
 
+    onTileClick(x, y){
+        const tile = this.state.game.getTileAtPos(x, y);
+        tile.rotateClockWise();
+        this.state.game.evaluateTileMap();
+        if (this.state.game.isSolved){
+            this.onStageComplete();
+        }
+        else{
+            this.setState((state) => ({
+                game: this.state.game
+            }));
+        }
+    }
+
     onStageComplete(){
         this.setState((state) => ({
             turns: 0,
-            stage: ++this.state.stage
+            stage: ++this.state.stage,
+            game: new Game()
         }));
     }
 
@@ -203,7 +198,8 @@ class GameUI extends React.Component{
                 <Tilemap turns={this.state.turns}
                          stage={this.state.stage}
                          onStageComplete={this.onStageComplete}
-                         tileMapData={this.props.tileMapData}
+                         tileMapData={this.state.game.tileMapData}
+                         onTileClick={this.onTileClick}
                 />
             </div>
         );
@@ -212,6 +208,4 @@ class GameUI extends React.Component{
 //=================================================================
 const { TileData } = require("./_tiledata.js");
 const { Game } = require("./_game.js");
-var game = new Game();
-
-ReactDOM.render(<GameUI tileMapData={game.tileMapData}/>, document.getElementById('app'));
+ReactDOM.render(<GameUI/>, document.getElementById('app'));
