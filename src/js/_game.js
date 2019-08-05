@@ -3,20 +3,24 @@ const { Generator } = require("./_generator.js");
 
 class Game{
     constructor(){
+        this.isSolved = false;
         this.tileMapData = this.generateTilemap();
         this.startPos = this.getStartPos();
+        this.endPos = this.getEndPos();
         this.evaluateTileMap();
     }
 
     generateTilemap(){
-        //return new Generator(6, 3).generate();
-        return new Generator(12, 7).generate();
+        return new Generator(6, 3).generate();
     }
 
     evaluateTileMap() {
         this.setAllTilesToUnlit();
         let visited = [];
         this.evaluateTileAtPos(this.startPos[0], this.startPos[1], visited);
+        if (this.getTileAtPos(this.endPos[0], this.endPos[1]).isLit){
+            this.isSolved = true;
+        }
     }
 
     evaluateTileAtPos(x, y, visited){
@@ -75,6 +79,18 @@ class Game{
             for(var x = 0; x < this.tileMapData[y].length; x++) {
                 var tile = this.tileMapData[y][x];
                 if (tile.type === 'S') {
+                    return [x, y];
+                }
+            }
+        }
+        return null;
+    }
+
+    getEndPos(){
+        for(var y = 0; y < this.tileMapData.length; y++) {
+            for(var x = 0; x < this.tileMapData[y].length; x++) {
+                var tile = this.tileMapData[y][x];
+                if (tile.type === 'E') {
                     return [x, y];
                 }
             }

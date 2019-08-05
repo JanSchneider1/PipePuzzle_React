@@ -46,26 +46,22 @@ class Tile extends React.Component{
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.state = {
-            data: this.props.data
-        };
     }
 
     handleClick(){
-        console.log(this.props.x + " / " + this.props.y);
         const tile = game.getTileAtPos(this.props.x, this.props.y);
-        this.setState({
-            data: tile
-        });
         tile.rotateClockWise();
         game.evaluateTileMap();
-        this.props.updateTileMapData();
+        if (game.isSolved){
+            console.log("Finished");
+            this.props.nextStage();
+        }
+        else{
+            this.props.updateTileMapData();
+        }
     }
 
     render() {
-        if (this.state.data.type === 'E' && this.state.data.isLit){
-            //alert('Stage cleared!');
-        }
         return (
             <div className={"tile " + this.applyRotationClass()}>
                 <img onClick={this.handleClick} alt="Tile" src={this.getImgBasedOnType()}/>
@@ -74,7 +70,7 @@ class Tile extends React.Component{
     }
 
     applyRotationClass(){
-        switch (this.state.data.rotation) {
+        switch (this.props.data.rotation) {
             case 0:
                 return "rotate-0";
             case 1:
@@ -87,8 +83,8 @@ class Tile extends React.Component{
     }
 
     getImgBasedOnType(){
-        if (this.state.data.isLit){
-            switch(this.state.data.type){
+        if (this.props.data.isLit){
+            switch(this.props.data.type){
                 case '-':
                     return "/img/Empty_Tile.png";
                 case 'S':
@@ -106,7 +102,7 @@ class Tile extends React.Component{
             }
         }
         else{
-            switch(this.state.data.type){
+            switch(this.props.data.type){
                 case '-':
                     return "/img/Empty_Tile.png";
                 case 'S':
@@ -133,19 +129,30 @@ class Tilemap extends React.Component{
             tileMapData : this.props.tileMapData
         };
         this.updateTileMapData = this.updateTileMapData.bind(this);
+        this.nextStage = this.nextStage.bind(this);
     }
 
     updateTileMapData() {
-        this.setState({tileMapData: this.state.tileMapData});
+        this.setState({
+                tileMapData: this.state.tileMapData
+        });
     };
+
+    nextStage(){
+        game = new Game();
+        this.setState({
+            tileMapData: game.tileMapData
+        });
+    }
 
     createTiles(){
         const rows = [];
         for (let y=0; y < this.state.tileMapData.length; y++){
             let tiles = [];
             for (let x=0; x < this.state.tileMapData[y].length; x++){
+                console.log(this.state.tileMapData[y][x].type);
                 tiles.push(
-                    <Tile data={this.state.tileMapData[y][x]} x={x} y={y} updateTileMapData={this.updateTileMapData}/>
+                    <Tile data={this.state.tileMapData[y][x]} x={x} y={y} updateTileMapData={this.updateTileMapData} nextStage={this.nextStage}/>
                 );
             }
             rows.push(
@@ -168,7 +175,6 @@ class Tilemap extends React.Component{
 
 class GameUI extends React.Component{
     render() {
-        console.log(game.tileMapData);
         return (
             <div className="game">
                 <HUD/>
