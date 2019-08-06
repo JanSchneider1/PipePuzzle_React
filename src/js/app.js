@@ -171,9 +171,10 @@ class GameUI extends React.Component{
             normalAtStage: 2,
             hardAtStage: 5,
             timer: {
-                seconds: 0,
-                minutes: 3,
-            }
+                seconds: 59,
+                minutes: 2,
+            },
+            type: '6by3'
         };
         this.onStageComplete = this.onStageComplete.bind(this);
         this.onTileClick = this.onTileClick.bind(this);
@@ -212,7 +213,7 @@ class GameUI extends React.Component{
             }
         }
         else{
-            seconds = seconds < 9 ? `0${seconds-1}` : seconds-1;
+            seconds = seconds <= 10 ? `0${seconds-1}` : seconds-1;
         }
         this.setState((state) => ({
             timer:{
@@ -225,26 +226,31 @@ class GameUI extends React.Component{
     onStageComplete(){
         // Generate stage of size based on current difficulty
         let nextGame;
+        let type;
         if (this.state.stage + 1 > this.state.hardAtStage){
             nextGame = new Game(12, 7);
+            type = '12by7';
         }
         else if (this.state.stage + 1 > this.state.normalAtStage){
             nextGame = new Game(9, 5);
+            type = '9by5';
         }
         else {
             nextGame = new Game(6, 3);
+            type = '6by3';
         }
 
         this.setState((state) => ({
             turns: 0,
             stage: ++this.state.stage,
-            game: nextGame
+            game: nextGame,
+            type: type
         }));
     }
 
     render() {
         return (
-            <div className="game">
+            <div className={"game " + "game-" + this.state.type}>
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
                      timer={this.state.timer}
