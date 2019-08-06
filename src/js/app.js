@@ -170,11 +170,11 @@ class GameUI extends React.Component{
             stage: 1,
             normalAtStage: 2,
             hardAtStage: 5,
+            type: '6by3',
             timer: {
                 seconds: 59,
                 minutes: 2,
-            },
-            type: '6by3'
+            }
         };
         this.onStageComplete = this.onStageComplete.bind(this);
         this.onTileClick = this.onTileClick.bind(this);
@@ -186,14 +186,19 @@ class GameUI extends React.Component{
         tile.rotateClockWise();
         this.state.game.evaluateTileMap();
         if (this.state.game.isSolved){
-            this.onStageComplete();
+            setTimeout(() => this.onStageComplete(), 500);
         }
+        this.setState((state) => ({
+            game: this.state.game,
+            turns: ++this.state.turns
+        }));
+        /*
         else{
             this.setState((state) => ({
                 game: this.state.game,
                 turns: ++this.state.turns
             }));
-        }
+        }*/
     }
 
     onLose(){
