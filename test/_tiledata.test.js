@@ -48,37 +48,37 @@ describe('Test if invalid arguments throw an error', () => {
     test("Tile with type 'P' throws Error", () => {
         expect(() => {
             new TileData('P', 3)
-        }).toThrowError();
+        }).toThrowError("P is not an legal argument for type of TileData");
     });
     test("Tile with type ' ' throws Error", () => {
         expect(() => {
             new TileData(' ', 3)
-        }).toThrowError();
+        }).toThrowError(" is not an legal argument for type of TileData");
     });
     test("Tile with type null throws Error", () => {
         expect(() => {
             new TileData(null, 3)
-        }).toThrowError();
+        }).toThrowError("null is not an legal argument for type of TileData");
     });
     test("Tile with type 'x' throws Error", () => {
         expect(() => {
             new TileData('x', 3)
-        }).toThrowError();
+        }).toThrowError("x is not an legal argument for type of TileData");
     });
     test("Tile with rotation 90 throws Error", () => {
         expect(() => {
             new TileData('X', 90)
-        }).toThrowError();
+        }).toThrowError("90 is not an legal argument for rotation of TileData");
     });
     test("Tile with rotation null throws Error", () => {
         expect(() => {
             new TileData('X', null)
-        }).toThrowError();
+        }).toThrowError("null is not an legal argument for rotation of TileData");
     });
     test("Tile with type '2' throws Error", () => {
         expect(() => {
             new TileData('X', '2')
-        }).toThrowError();
+        }).toThrowError("2 is not an legal argument for rotation of TileData");
     });
 });
 

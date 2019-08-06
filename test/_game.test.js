@@ -1,7 +1,7 @@
 const { Game } = require('../src/js/_game.js');
 const { TileData } = require('../src/js/_tiledata.js');
 
-var game = new Game();
+var game = new Game(6, 3);
 
 beforeEach(() => {
     game.tileMapData = [
