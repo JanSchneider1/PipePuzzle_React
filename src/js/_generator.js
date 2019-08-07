@@ -3,8 +3,8 @@ const Random = require("./_random.js");
 
 class Generator{
     constructor(width, height){
-        if (width < 3 || height < 3){
-            throw Error(`Invalid values for width = ${width} and height = ${height} must both at least 3`);
+        if (width < 4 || height < 3){
+            throw Error(`Invalid values for width = ${width} and height = ${height}`);
         }
         if ((height % 2) !== 1){
             throw Error(`Height = ${height} must be odd number!`);
@@ -116,7 +116,7 @@ class Generator{
             // First tile must be angular as we go up or down
             tilemap[currentPos[1]][currentPos[0]] = this.randomAngularTile();
             // Go up / down until we are on the same level as endPos
-            while (this.endPos[1] === currentPos[1]){
+            while (this.endPos[1] !== currentPos[1]){
                 if (this.endPos[1] > currentPos[1]) {
                     currentPos[1]++;
                 }
@@ -168,12 +168,16 @@ class Generator{
         return direction === 'right' ? this.probabilities.rightAfterRight : this.probabilities.right;
     }
 
-    getProbabilityUpForDirection(direction){
+    getProbabilityUpForDirection(direction) {
         switch (direction) {
-            case 'right': return (1 - this.probabilities.rightAfterRight)/2;
-            case 'up': return 1 - this.probabilities.right;
-            case 'down': return 0;
+            case 'right':
+                return (1 - this.probabilities.rightAfterRight) / 2;
+            case 'up':
+                return 1 - this.probabilities.right;
+            case 'down':
+                return 0;
         }
+        throw Error(`Invalid direction given (direction = ${direction})`);
     }
 
     getProbabilityDownForDirection(direction){
@@ -182,6 +186,7 @@ class Generator{
             case 'up': return 0;
             case 'down': return 1 - this.probabilities.right;
         }
+        throw Error(`Invalid direction given (direction = ${direction})`);
     }
 
     randomDirection(currentDirection){

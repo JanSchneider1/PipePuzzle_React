@@ -2,14 +2,15 @@ const { randomInt } = require("../src/js/_random.js");
 
 test("Generating a random int with probabilities not adding up to 1.0 throws Error", () => {
     expect(() => { randomInt(1.2, 2, 5) })
-        .toThrowError("Probabilities 1.2,2,5 don't add up to 1.0s");
+        .toThrow("Probabilities 1.2,2,5 don't add up to 1.0s");
 });
 test("Generating a random int with probabilities containing a negative number throws error", () => {
     expect(() => { randomInt(1.2, 0, -0.2) })
-        .toThrowError("Probabilities 1.2,0,-0.2 aren't allowed to contain negative numbers");
+        .toThrow("Probabilities 1.2,0,-0.2 aren't allowed to contain negative numbers");
 });
 test("Generating a random int with probabilities of length 0 throws error", () => {
-    expect(() => { randomInt() }).toThrowError('Probabilities cannot be empty');
+    expect(() => { randomInt() })
+        .toThrow('Probabilities cannot be empty');
 });
 
 describe('Test if generating random int returns expected results', () => {
