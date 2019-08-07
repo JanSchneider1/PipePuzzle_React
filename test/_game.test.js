@@ -138,14 +138,15 @@ test("Return null when try to get start pos on empty tilemap", () => {
     expect(game.getStartPos()).toEqual(null);
 });
 
-/*
 test("Evaluating tilemap does lit up correct tiles", () => {
     // Given
     game.tileMapData = [
         [new TileData("-", 0), new TileData("I", 0), new TileData("-", 0)],
         [new TileData("S", 0), new TileData("X", 0), new TileData("E", 2)],
-        [new TileData("-", 0), new TileData("L", 0), new TileData("-", 0)],
+        [new TileData("-", 0), new TileData("L", 0), new TileData("-", 0)]
     ];
+    game.startPos = [0, 1];
+    game.endPos = [1, 1];
     // When
     game.evaluateTileMap();
     // Then
@@ -169,6 +170,8 @@ test("Evaluating tilemap does lit up correct tiles", () => {
         [new TileData("S", 0), new TileData("X", 0), new TileData("X", 2)],
         [new TileData("X", 0), new TileData("X", 0), new TileData("X", 0)],
     ];
+    game.startPos = [0, 1];
+    game.endPos = [1, 1];
     // When
     game.evaluateTileMap();
     // Then
@@ -192,7 +195,8 @@ test("Evaluating tilemap does lit up correct tiles", () => {
         [new TileData("S", 0), new TileData("X", 0), new TileData("T", 0)],
         [new TileData("X", 0), new TileData("I", 1), new TileData("L", 0)],
     ];
-    console.log(game.tileMapData);
+    game.startPos = [0, 1];
+    game.endPos = [1, 1];
     // When
     game.evaluateTileMap();
     // Then
@@ -208,4 +212,13 @@ test("Evaluating tilemap does lit up correct tiles", () => {
     expect(game.getTileAtPos(1,2).isLit).toBe(true);
     expect(game.getTileAtPos(2,2).isLit).toBe(true);
 });
-*/
+
+test("Finding end pos returns null if no tile with type 'E' found", () => {
+    // Given
+    game.tileMapData = [
+        [new TileData("X", 0), new TileData("I", 1), new TileData("-", 0)],
+        [new TileData("S", 0), new TileData("X", 0), new TileData("T", 0)],
+        [new TileData("X", 0), new TileData("I", 1), new TileData("L", 0)],
+    ];
+    expect(game.getEndPos()).toBe(null);
+});

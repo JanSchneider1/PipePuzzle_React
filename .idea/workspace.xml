@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="467f4805-362c-42c5-96e0-c7c5139862fc" name="Default Changelist" comment="">
+    <list default="true" id="467f4805-362c-42c5-96e0-c7c5139862fc" name="Default Changelist" comment="Added more tests to reach 100% line coverage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/_generator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/_generator.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/_generator.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/_game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/_game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/_game.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/_game.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/_random.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/_random.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/_tiledata.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/_tiledata.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +23,17 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/js/_generator.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="2317">
-                    <caret line="207" column="43" lean-forward="true" selection-start-line="207" selection-start-column="43" selection-end-line="207" selection-end-column="43" />
+                  <state relative-caret-position="527">
+                    <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/js/_game.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="906">
+                    <caret line="96" column="1" selection-start-line="96" selection-start-column="1" selection-end-line="97" selection-end-column="20" />
                   </state>
                 </provider>
               </entry>
@@ -35,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/_generator.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="161" column="24" lean-forward="true" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="24" />
+            <state relative-caret-position="6698">
+              <caret line="394" column="47" selection-start-line="394" selection-start-column="47" selection-end-line="394" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -47,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/_game.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-782">
-              <caret line="129" column="3" lean-forward="true" selection-start-line="129" selection-start-column="3" selection-end-line="129" selection-end-column="3" />
+            <state relative-caret-position="3043">
+              <caret line="218" column="22" selection-start-line="218" selection-start-column="22" selection-end-line="218" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -56,26 +66,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/_random.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="42" />
+            <state relative-caret-position="34">
+              <caret line="8" column="98" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/_game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
-              <caret line="156" selection-start-line="156" selection-end-line="156" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/_tiledata.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="82" column="3" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+            <state relative-caret-position="425">
+              <caret line="76" column="7" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -116,20 +117,20 @@
         <option value="$PROJECT_DIR$/src/js/_tiledata.js" />
         <option value="$PROJECT_DIR$/babel.config.js" />
         <option value="$PROJECT_DIR$/test/app.test.js" />
-        <option value="$PROJECT_DIR$/src/js/_game.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/build/js/app_deploy.js" />
         <option value="$PROJECT_DIR$/src/html/app.html" />
         <option value="$PROJECT_DIR$/src/css/app.less" />
         <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$USER_HOME$/Desktop/sadsad.txt" />
-        <option value="$PROJECT_DIR$/test/_game.test.js" />
-        <option value="$PROJECT_DIR$/test/_tiledata.test.js" />
         <option value="$PROJECT_DIR$/src/js/_error.js" />
         <option value="$PROJECT_DIR$/src/js/_random.js" />
-        <option value="$PROJECT_DIR$/test/_random.test.js" />
-        <option value="$PROJECT_DIR$/src/js/_generator.js" />
         <option value="$PROJECT_DIR$/test/_generator.test.js" />
+        <option value="$PROJECT_DIR$/src/js/_game.js" />
+        <option value="$PROJECT_DIR$/test/_game.test.js" />
+        <option value="$PROJECT_DIR$/src/js/_generator.js" />
+        <option value="$PROJECT_DIR$/test/_random.test.js" />
+        <option value="$PROJECT_DIR$/test/_tiledata.test.js" />
       </list>
     </option>
   </component>
@@ -227,7 +228,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565170428079" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565174621229" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -353,7 +354,7 @@
       <workItem from="1564641016709" duration="16886000" />
       <workItem from="1564982361543" duration="21693000" />
       <workItem from="1565069025264" duration="16766000" />
-      <workItem from="1565160266799" duration="10336000" />
+      <workItem from="1565160266799" duration="13285000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Babel">
       <created>1563954411691</created>
@@ -614,7 +615,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565095782112</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added more tests">
+      <created>1565170810612</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1565170810612</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Added more tests">
+      <created>1565173653909</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1565173653909</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -650,7 +665,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216581000" />
+    <option name="totallyTimeSpent" value="219530000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -787,7 +802,6 @@
     <MESSAGE value="Added generator to generate playable tilemaps (WIP)" />
     <MESSAGE value="Added level generation (WIP)" />
     <MESSAGE value="Added level generation" />
-    <MESSAGE value="Added more tests" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Increased tilemap size" />
     <MESSAGE value="Solving the puzzles generates a new one" />
@@ -798,7 +812,8 @@
     <MESSAGE value="Added delay after completing a stage" />
     <MESSAGE value="Added custom font" />
     <MESSAGE value="Fixed tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed tests" />
+    <MESSAGE value="Added more tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more tests" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/js/js/app.js" />
@@ -967,43 +982,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/_game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="156" selection-start-line="156" selection-end-line="156" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/_game.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782">
-          <caret line="129" column="3" lean-forward="true" selection-start-line="129" selection-start-column="3" selection-end-line="129" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/_random.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/_tiledata.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="82" column="3" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+        <state relative-caret-position="906">
+          <caret line="96" column="1" selection-start-line="96" selection-start-column="1" selection-end-line="97" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/_generator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2317">
-          <caret line="207" column="43" lean-forward="true" selection-start-line="207" selection-start-column="43" selection-end-line="207" selection-end-column="43" />
+        <state relative-caret-position="527">
+          <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/_random.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="8" column="98" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/_game.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3043">
+          <caret line="218" column="22" selection-start-line="218" selection-start-column="22" selection-end-line="218" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/_generator.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="161" column="24" lean-forward="true" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="24" />
+        <state relative-caret-position="6698">
+          <caret line="394" column="47" selection-start-line="394" selection-start-column="47" selection-end-line="394" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/_tiledata.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="76" column="7" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
         </state>
       </provider>
     </entry>

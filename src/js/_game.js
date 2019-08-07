@@ -67,17 +67,17 @@ class Game{
     }
 
     setAllTilesToUnlit(){
-        for(var y = 0; y < this.tileMapData.length; y++) {
-            for(var x = 0; x < this.tileMapData[y].length; x++) {
+        for(let y = 0; y < this.tileMapData.length; y++) {
+            for(let x = 0; x < this.tileMapData[y].length; x++) {
                 this.tileMapData[y][x].isLit = false;
             }
         }
     }
 
     getStartPos(){
-        for(var y = 0; y < this.tileMapData.length; y++) {
-            for(var x = 0; x < this.tileMapData[y].length; x++) {
-                var tile = this.tileMapData[y][x];
+        for(let y = 0; y < this.tileMapData.length; y++) {
+            for(let x = 0; x < this.tileMapData[y].length; x++) {
+                const tile = this.tileMapData[y][x];
                 if (tile.type === 'S') {
                     return [x, y];
                 }
@@ -87,9 +87,9 @@ class Game{
     }
 
     getEndPos(){
-        for(var y = 0; y < this.tileMapData.length; y++) {
-            for(var x = 0; x < this.tileMapData[y].length; x++) {
-                var tile = this.tileMapData[y][x];
+        for(let y = 0; y < this.tileMapData.length; y++) {
+            for(let x = 0; x < this.tileMapData[y].length; x++) {
+                const tile = this.tileMapData[y][x];
                 if (tile.type === 'E') {
                     return [x, y];
                 }

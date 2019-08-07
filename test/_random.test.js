@@ -6,11 +6,11 @@ test("Generating a random int with probabilities not adding up to 1.0 throws Err
 });
 test("Generating a random int with probabilities containing a negative number throws error", () => {
     expect(() => { randomInt(1.2, 0, -0.2) })
-        .toThrow("Probabilities 1.2,0,-0.2 aren't allowed to contain negative numbers");
+        .toThrow(new Error("Probabilities 1.2,0,-0.2 aren't allowed to contain negative numbers"));
 });
 test("Generating a random int with probabilities of length 0 throws error", () => {
     expect(() => { randomInt() })
-        .toThrow('Probabilities cannot be empty');
+        .toThrow(new Error('Probabilities cannot be empty'));
 });
 
 describe('Test if generating random int returns expected results', () => {

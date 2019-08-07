@@ -48,37 +48,37 @@ describe('Test if invalid arguments throw an error', () => {
     test("Tile with type 'P' throws Error", () => {
         expect(() => {
             new TileData('P', 3)
-        }).toThrowError("P is not an legal argument for type of TileData");
+        }).toThrowError(new Error("P is not an legal argument for type of TileData"));
     });
     test("Tile with type ' ' throws Error", () => {
         expect(() => {
             new TileData(' ', 3)
-        }).toThrowError(" is not an legal argument for type of TileData");
+        }).toThrowError(new Error("  is not an legal argument for type of TileData"));
     });
     test("Tile with type null throws Error", () => {
         expect(() => {
             new TileData(null, 3)
-        }).toThrowError("null is not an legal argument for type of TileData");
+        }).toThrowError(new Error("null is not an legal argument for type of TileData"));
     });
     test("Tile with type 'x' throws Error", () => {
         expect(() => {
             new TileData('x', 3)
-        }).toThrowError("x is not an legal argument for type of TileData");
+        }).toThrowError(new Error("x is not an legal argument for type of TileData"));
     });
     test("Tile with rotation 90 throws Error", () => {
         expect(() => {
             new TileData('X', 90)
-        }).toThrowError("90 is not an legal argument for rotation of TileData");
+        }).toThrowError(new Error("90 is not an legal argument for rotation of TileData"));
     });
     test("Tile with rotation null throws Error", () => {
         expect(() => {
             new TileData('X', null)
-        }).toThrowError("null is not an legal argument for rotation of TileData");
+        }).toThrowError(new Error("null is not an legal argument for rotation of TileData"));
     });
     test("Tile with type '2' throws Error", () => {
         expect(() => {
             new TileData('X', '2')
-        }).toThrowError("2 is not an legal argument for rotation of TileData");
+        }).toThrowError(new Error("2 is not an legal argument for rotation of TileData"));
     });
 });
 
