@@ -93,6 +93,21 @@ describe('Test getting angular tiles returns random angular tile', () => {
     });
 });
 
+describe('Test getting random direction returns expected direction', () => {
+    test("Return right if random is 0 and direction is up", () => {
+        Random.randomInt = jest.fn(() => 0);
+        expect(generator.randomDirection('up')).toEqual('right');
+    });
+    test("Return up if random is 1 and direction is up", () => {
+        Random.randomInt = jest.fn(() => 1);
+        expect(generator.randomDirection('up')).toEqual('up');
+    });
+    test("Return down if random is 2 and direction is up", () => {
+        Random.randomInt = jest.fn(() => 2);
+        expect(generator.randomDirection('up')).toEqual('down');
+    });
+});
+
 describe('Test getting random rotation return random rotation', () => {
     test("Return 0 if random is in range", () => {
         Math.random = jest.fn(() => 0.1);
@@ -143,157 +158,183 @@ test("Creating a random solution with an endpoint on the left of start point thr
         .toThrow(new Error("Start-Pos(3,1) should be on the left of End-Pos(0,1)"));
 });
 
-test("Creating a random solution returns expected result", () => {
-    // Mocks
-    generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
-    generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
-    generator.randomDirection =  jest.fn(() => 'up');
-    // Given
-    let tilemap = [
-        [new TileData('-', 0), null, null, new TileData('-', 0)],
-        [new TileData('S', 0), null, null, new TileData('E', 0)],
-        [new TileData('-', 0), null, null, new TileData('-', 0)],
-    ];
-    generator.startPos = [0, 1];
-    generator.endPos = [3, 1];
-    generator.width = 4;
-    generator.height = 5;
-    // When
-    expect(generator.createRandomSolution(tilemap))
+
+describe('Creating a random solution returns expected result', () => {
+    test("4x3 Generator with randomDirection of up goes expected path", () => {
+        // Mocks
+        generator = new Generator(4, 3);
+        generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
+        generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
+        generator.randomDirection = jest.fn(() => 'up');
+        // Given
+        let tilemap = [
+            [new TileData('-', 0), null, null, new TileData('-', 0)],
+            [new TileData('S', 0), null, null, new TileData('E', 0)],
+            [new TileData('-', 0), null, null, new TileData('-', 0)],
+        ];
+        generator.startPos = [0, 1];
+        generator.endPos = [3, 1];
+        // When
+        expect(generator.createRandomSolution(tilemap))
         // Then
-        .toEqual(
-            [
-                [new TileData('-', 0), new TileData('L', 0), new TileData('L', 0), new TileData('-', 0)],
-                [new TileData('S', 0), new TileData('L', 0), new TileData('L', 0), new TileData('E', 0)],
-                [new TileData('-', 0), null, null, new TileData('-', 0)],
-            ]
-        );
-});
+            .toEqual(
+                [
+                    [new TileData('-', 0), new TileData('L', 0), new TileData('L', 0), new TileData('-', 0)],
+                    [new TileData('S', 0), new TileData('L', 0), new TileData('L', 0), new TileData('E', 0)],
+                    [new TileData('-', 0), null, null, new TileData('-', 0)],
+                ]
+            );
+    });
 
-test("Creating a random solution returns expected result", () => {
-    // Mocks
-    generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
-    generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
-    generator.randomDirection =  jest.fn(() => 'up');
-    // Given
-    let tilemap = [
-        [new TileData('-', 0), null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, new TileData('-', 0)],
-        [new TileData('S', 0), null, null, new TileData('E', 0)],
-        [new TileData('-', 0), null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, new TileData('-', 0)]
-    ];
-    generator.startPos = [0, 2];
-    generator.endPos = [3, 2];
-    generator.width = 4;
-    generator.height = 5;
-    // When
-    expect(generator.createRandomSolution(tilemap))
-    // Then
-        .toEqual(
-            [
-                [new TileData('-', 0), new TileData('L', 0), new TileData('L', 0), new TileData('-', 0)],
-                [new TileData('-', 0), new TileData('I', 0), new TileData('I', 0), new TileData('-', 0)],
-                [new TileData('S', 0), new TileData('L', 0), new TileData('L', 0), new TileData('E', 0)],
-                [new TileData('-', 0), null, null, new TileData('-', 0)],
-                [new TileData('-', 0), null, null, new TileData('-', 0)]
-            ]
-        );
-});
+    test("4x3 Generator with randomDirection of down goes expected path", () => {
+        // Mocks
+        generator = new Generator(4, 3);
+        generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
+        generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
+        generator.randomDirection = jest.fn(() => 'down');
+        // Given
+        let tilemap = [
+            [new TileData('-', 0), null, null, new TileData('-', 0)],
+            [new TileData('S', 0), null, null, new TileData('E', 0)],
+            [new TileData('-', 0), null, null, new TileData('-', 0)],
+        ];
+        generator.startPos = [0, 1];
+        generator.endPos = [3, 1];
+        // When
+        expect(generator.createRandomSolution(tilemap))
+        // Then
+            .toEqual(
+                [
+                    [new TileData('-', 0), null, null, new TileData('-', 0)],
+                    [new TileData('S', 0), new TileData('L', 0), new TileData('L', 0), new TileData('E', 0)],
+                    [new TileData('-', 0), new TileData('L', 0), new TileData('L', 0), new TileData('-', 0)],
+                ]
+            );
+    });
 
-test("Creating a random solution returns expected result", () => {
-    // Mocks
-    generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
-    generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
-    generator.randomDirection =  jest.fn(() => 'up');
-    // Given
-    let tilemap = [
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('S', 0), null, null, null, new TileData('E', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)]
-    ];
-    generator.startPos = [0, 3];
-    generator.endPos = [4, 3];
-    generator.width = 5;
-    generator.height = 7;
-    // When
-    expect(generator.createRandomSolution(tilemap))
-    // Then
-        .toEqual(
-            [
-                [new TileData('-', 0), new TileData('L', 0), new TileData('I', 0), new TileData('L', 0), new TileData('-', 0)],
-                [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
-                [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
-                [new TileData('S', 0), new TileData('L', 0), null, new TileData('L', 0), new TileData('E', 0)],
-                [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-                [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-                [new TileData('-', 0), null, null, null, new TileData('-', 0)]
-            ]
-        );
-});
+    test("4x5 Generator with randomDirection of up goes expected path", () => {
+        // Mocks
+        generator = new Generator(4, 5);
+        generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
+        generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
+        generator.randomDirection = jest.fn(() => 'up');
+        // Given
+        let tilemap = [
+            [new TileData('-', 0), null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, new TileData('-', 0)],
+            [new TileData('S', 0), null, null, new TileData('E', 0)],
+            [new TileData('-', 0), null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, new TileData('-', 0)]
+        ];
+        generator.startPos = [0, 2];
+        generator.endPos = [3, 2];
+        // When
+        expect(generator.createRandomSolution(tilemap))
+        // Then
+            .toEqual(
+                [
+                    [new TileData('-', 0), new TileData('L', 0), new TileData('L', 0), new TileData('-', 0)],
+                    [new TileData('-', 0), new TileData('I', 0), new TileData('I', 0), new TileData('-', 0)],
+                    [new TileData('S', 0), new TileData('L', 0), new TileData('L', 0), new TileData('E', 0)],
+                    [new TileData('-', 0), null, null, new TileData('-', 0)],
+                    [new TileData('-', 0), null, null, new TileData('-', 0)]
+                ]
+            );
+    });
 
-test("Creating a random solution returns expected result", () => {
-    // Mocks
-    generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
-    generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
-    generator.randomDirection =  jest.fn(() => 'down');
-    // Given
-    let tilemap = [
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('S', 0), null, null, null, new TileData('E', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-        [new TileData('-', 0), null, null, null, new TileData('-', 0)]
-    ];
-    generator.startPos = [0, 3];
-    generator.endPos = [4, 3];
-    generator.width = 5;
-    generator.height = 7;
-    // When
-    expect(generator.createRandomSolution(tilemap))
-    // Then
-        .toEqual(
-            [
-                [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-                [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-                [new TileData('-', 0), null, null, null, new TileData('-', 0)],
-                [new TileData('S', 0), new TileData('L', 0), null, new TileData('L', 0), new TileData('E', 0)],
-                [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
-                [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
-                [new TileData('-', 0), new TileData('L', 0), new TileData('I', 0), new TileData('L', 0), new TileData('-', 0)]
-            ]
-        );
-});
+    test("6x3 Generator with randomDirection of right only goes right", () => {
+        // Mocks
+        generator = new Generator(6, 3);
+        generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
+        generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
+        generator.randomDirection = jest.fn(() => 'right');
+        // Given
+        let tilemap = [
+            [new TileData('-', 0), null, null, null, null, new TileData('-', 0)],
+            [new TileData('S', 0), null, null, null, null, new TileData('E', 0)],
+            [new TileData('-', 0), null, null, null, null, new TileData('-', 0)],
+        ];
+        generator.startPos = [0, 1];
+        generator.endPos = [5, 1];
+        // When
+        expect(generator.createRandomSolution(tilemap))
+        // Then
+            .toEqual(
+                [
+                    [new TileData('-', 0), null, null, null, null, new TileData('-', 0)],
+                    [new TileData('S', 0), new TileData('I', 0), new TileData('I', 0), new TileData('I', 0), new TileData('I', 0), new TileData('E', 0)],
+                    [new TileData('-', 0), null, null, null, null, new TileData('-', 0)],
+                ]
+            );
+    });
 
-test("Creating a random solution returns expected result", () => {
-    // Mocks
-    generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
-    generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
-    generator.randomDirection =  jest.fn(() => 'down');
-    // Given
-    let tilemap = [
-        [new TileData('-', 0), null, null, new TileData('-', 0)],
-        [new TileData('S', 0), null, null, new TileData('E', 0)],
-        [new TileData('-', 0), null, null, new TileData('-', 0)],
-    ];
-    generator.startPos = [0, 1];
-    generator.endPos = [3, 1];
-    // When
-    expect(generator.createRandomSolution(tilemap))
-    // Then
-        .toEqual(
-            [
-                [new TileData('-', 0), null, null, new TileData('-', 0)],
-                [new TileData('S', 0), new TileData('L', 0), new TileData('L', 0), new TileData('E', 0)],
-                [new TileData('-', 0), new TileData('L', 0), new TileData('L', 0), new TileData('-', 0)],
-            ]
-        );
+    test("5x7 Generator with randomDirection of up goes expected path", () => {
+        // Mocks
+        generator = new Generator(5, 7);
+        generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
+        generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
+        generator.randomDirection = jest.fn(() => 'up');
+        // Given
+        let tilemap = [
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('S', 0), null, null, null, new TileData('E', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)]
+        ];
+        generator.startPos = [0, 3];
+        generator.endPos = [4, 3];
+        // When
+        expect(generator.createRandomSolution(tilemap))
+        // Then
+            .toEqual(
+                [
+                    [new TileData('-', 0), new TileData('L', 0), new TileData('I', 0), new TileData('L', 0), new TileData('-', 0)],
+                    [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
+                    [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
+                    [new TileData('S', 0), new TileData('L', 0), null, new TileData('L', 0), new TileData('E', 0)],
+                    [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+                    [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+                    [new TileData('-', 0), null, null, null, new TileData('-', 0)]
+                ]
+            );
+    });
+
+    test("5x7 Generator with randomDirection of down goes expected path", () => {
+        // Mocks
+        generator = new Generator(5, 7);
+        generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
+        generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
+        generator.randomDirection = jest.fn(() => 'down');
+        // Given
+        let tilemap = [
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('S', 0), null, null, null, new TileData('E', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+            [new TileData('-', 0), null, null, null, new TileData('-', 0)]
+        ];
+        generator.startPos = [0, 3];
+        generator.endPos = [4, 3];
+        // When
+        expect(generator.createRandomSolution(tilemap))
+        // Then
+            .toEqual(
+                [
+                    [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+                    [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+                    [new TileData('-', 0), null, null, null, new TileData('-', 0)],
+                    [new TileData('S', 0), new TileData('L', 0), null, new TileData('L', 0), new TileData('E', 0)],
+                    [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
+                    [new TileData('-', 0), new TileData('I', 0), null, new TileData('I', 0), new TileData('-', 0)],
+                    [new TileData('-', 0), new TileData('L', 0), new TileData('I', 0), new TileData('L', 0), new TileData('-', 0)]
+                ]
+            );
+    });
 });
 
 describe('Test if getting probability for right returns expected value', () => {
