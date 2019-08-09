@@ -1,6 +1,6 @@
-const { TurnCounter } = require("../Components/TurnCounter.react");
-const { StageCounter } = require("../Components/StageCounter.react");
-const { Timer } = require("../Components/Timer.react");
+const { TurnCounter } = require(".//TurnCounter.react");
+const { StageCounter } = require(".//StageCounter.react");
+const { Timer } = require(".//Timer.react");
 
 class HUD extends React.Component{
     render() {

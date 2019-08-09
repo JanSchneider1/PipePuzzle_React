@@ -1,4 +1,4 @@
-const { Tile } = require("../Components/Tile.react");
+const { Tile } = require(".//Tile.react");
 
 class Tilemap extends React.Component{
     constructor(props){

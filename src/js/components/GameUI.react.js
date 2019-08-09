@@ -1,6 +1,6 @@
 const { Game } = require("../_game");
-const { HUD } = require("../Components/HUD.react");
-const { Tilemap } = require("../Components/Tilemap.react");
+const { HUD } = require(".//HUD.react");
+const { Tilemap } = require(".//Tilemap.react");
 
 class GameUI extends React.Component{
     constructor(props){
