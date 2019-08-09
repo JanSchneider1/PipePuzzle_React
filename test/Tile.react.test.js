@@ -4,7 +4,7 @@ const { create } = require('react-test-renderer');
 const { Tile } = require("../src/js/components/Tile.react");
 const { TileData } = require("../src/js/_tiledata");
 
-test('Create Tile Component', () => {
+test('Creating Tile matches Snapshot', () => {
     const component = create(
         <Tile data={new TileData('-',0)}/>,
     );
