@@ -1,3 +1,5 @@
+const React = require('react');
+
 const { TurnCounter } = require(".//TurnCounter.react");
 const { StageCounter } = require(".//StageCounter.react");
 const { Timer } = require(".//Timer.react");

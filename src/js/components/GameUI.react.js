@@ -1,3 +1,5 @@
+const React = require('react');
+
 const { Game } = require("../_game");
 const { HUD } = require(".//HUD.react");
 const { Tilemap } = require(".//Tilemap.react");

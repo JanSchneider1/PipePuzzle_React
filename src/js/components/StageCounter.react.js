@@ -1,3 +1,5 @@
+const React = require('react');
+
 class StageCounter extends React.Component{
     render() {
         return (

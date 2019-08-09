@@ -1,3 +1,5 @@
+const React = require('react');
+
 const { Tile } = require(".//Tile.react");
 
 class Tilemap extends React.Component{

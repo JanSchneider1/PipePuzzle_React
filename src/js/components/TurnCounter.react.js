@@ -1,3 +1,5 @@
+const React = require('react');
+
 class TurnCounter extends React.Component{
     render() {
         return (
