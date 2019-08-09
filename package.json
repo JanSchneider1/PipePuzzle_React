@@ -19,7 +19,11 @@
     "babel-cli": "^6.26.0",
     "babel-jest": "^24.8.0",
     "babel-preset-react-app": "^3.1.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "express": "^4.17.1",
+    "jest-environment-enzyme": "^7.1.0",
+    "jest-enzyme": "^7.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "terser": "^4.1.2",
@@ -31,5 +35,9 @@
     "concurrently": "^4.1.1",
     "jest": "^24.8.0",
     "react-test-renderer": "^16.8.6"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["jest-enzyme"],
+    "testEnvironment": "enzyme"
   }
 }
