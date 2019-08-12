@@ -10,6 +10,17 @@
   dark: #5e4238;
 }
 
+/* When container-fly-in animation starts, the scrollbar appears,
+ * As the container is out of the initial screen. This looks weird,
+ * So we hide the scrollbar, as we don't need it at this specific size.
+ * This is an ideal solution, as it can mess up the scrollbar in other sizes too.
+ */
+@media screen and(min-width: 1480px) {
+  body {
+    overflow: hidden;
+  }
+}
+
 .bg {
   background-color: #e0e0e0;
 }
@@ -18,9 +29,10 @@
   background-color: @primaryColors[midtone];
   width: 80%;
   margin-left: 10%;
-  margin-top: 5%;
+  margin-top: 3.5%;
   padding-bottom: 3%;
   border-radius: 20px;
+  animation: container-fly-in 1.5s cubic-bezier(.17, .84, .44, 1);
 }
 
 *{
@@ -53,13 +65,32 @@
   }
 }
 
+.tilemap{
+  margin-top: 3%;
+}
 .tile img{
   border-radius: 25%;
-  padding: 5%;
+  padding: 7%;
   image-rendering: crisp-edges;
 }
 .tile img:hover{
   animation: focus 1s forwards;
+}
+
+.hud-turn-counter{
+  background-color: @primaryColors[dark];
+  color: white;
+  font-size: 3em;
+}
+.hud-stage-counter{
+  background-color: @primaryColors[dark];
+  color: white;
+  font-size: 3em;
+}
+.hud-timer{
+  background-color: @primaryColors[dark];
+  color: white;
+  font-size: 3em;
 }
 
 // Apply to tiles to rotate
@@ -77,6 +108,21 @@
 }
 
 // Animation
+@keyframes container-fly-in {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 25%;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes focus {
   100%{
     transform: scale(1.2, 1.2);
