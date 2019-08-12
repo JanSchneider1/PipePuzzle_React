@@ -3,10 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="2224fa84-d760-4450-a8ca-a5bbea55bed3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/Empty_Tile.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/Empty_Tile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/End.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/End.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/End_Lit.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/End_Lit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/I-Tile.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/I-Tile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/I-Tile_Lit.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/I-Tile_Lit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/L-Tile.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/L-Tile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/L-Tile_Lit.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/L-Tile_Lit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/Start.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/Start.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/T-Tile.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/T-Tile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/T-Tile_Lit.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/T-Tile_Lit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/X-Tile.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/X-Tile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/X-Tile_Lit.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/img/X-Tile_Lit.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/app.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/StageCounter.react.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/StageCounter.react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/Timer.react.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/Timer.react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/TurnCounter.react.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/TurnCounter.react.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/GameUI.react.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/GameUI.react.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,20 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/Tile.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+              <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -41,71 +46,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/components/GameUI.react.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1017">
-              <caret column="31" selection-start-column="31" selection-end-column="31" />
+            <state relative-caret-position="481">
+              <caret line="110" column="139" selection-start-line="110" selection-start-column="139" selection-end-line="110" selection-end-column="139" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/TurnCounter.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/css/app.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="362">
+              <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/StageCounter.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/resources/img/X-Tile.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/Timer.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/resources/img/T-Tile_Lit.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/HUD.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="31" selection-start-column="31" selection-end-column="31" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/resources/img/T-Tile.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/img/L-Tile_Lit.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/img/L-Tile.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/html/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="30" />
+            <state relative-caret-position="442">
+              <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/_tiledata.js">
+        <entry file="file://$PROJECT_DIR$/node_modules/@fortawesome/fontawesome-free/js/fontawesome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+            <state relative-caret-position="-1581">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,19 +166,19 @@
         <option value="$PROJECT_DIR$/src/js/Components/Tilemap.react.js" />
         <option value="$PROJECT_DIR$/babel.config.js" />
         <option value="$PROJECT_DIR$/src/js/components/HUD.react.js" />
-        <option value="$PROJECT_DIR$/src/js/components/GameUI.react.js" />
         <option value="$PROJECT_DIR$/src/js/components/Tilemap.react.js" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/build/minified/js/app_deploy.min.js" />
         <option value="$PROJECT_DIR$/test/__snapshots__/Tile.react.test.js.snap" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/test/Tile.react.test.js" />
-        <option value="$PROJECT_DIR$/src/html/app.html" />
         <option value="$PROJECT_DIR$/src/js/components/Tile.react.js" />
         <option value="$PROJECT_DIR$/src/js/components/StageCounter.react.js" />
         <option value="$PROJECT_DIR$/src/js/components/TurnCounter.react.js" />
         <option value="$PROJECT_DIR$/src/js/components/Timer.react.js" />
         <option value="$PROJECT_DIR$/src/css/app.less" />
+        <option value="$PROJECT_DIR$/src/html/app.html" />
+        <option value="$PROJECT_DIR$/src/js/components/GameUI.react.js" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
       </list>
     </option>
   </component>
@@ -287,7 +283,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565593282088" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565603982894" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -414,7 +410,7 @@
       <workItem from="1564982361543" duration="21693000" />
       <workItem from="1565069025264" duration="16766000" />
       <workItem from="1565160266799" duration="13285000" />
-      <workItem from="1565593544953" duration="2106000" />
+      <workItem from="1565593544953" duration="9386000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Babel">
       <created>1563954411691</created>
@@ -710,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565358978672</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Further UI Improvements">
+      <created>1565595668913</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1565595668913</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -746,7 +749,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243450000" />
+    <option name="totallyTimeSpent" value="250730000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -781,7 +784,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.20910075" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49946696" side_tool="true" visible="true" weight="0.31852654" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49946696" side_tool="true" visible="true" weight="0.22426869" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
@@ -869,7 +872,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored: Tiledata is now cascaded from 'game' to &lt;Tile/&gt; as data attribute" />
     <MESSAGE value="Added tests for '_game.js'" />
     <MESSAGE value="Added algorithm for updating state of tilemap" />
     <MESSAGE value="Added tests for evaluation algorithm" />
@@ -894,28 +896,10 @@
     <MESSAGE value="React is embed in app.js / Prepared snapshot tests" />
     <MESSAGE value="Added snapshot test for tile" />
     <MESSAGE value="Added snapshot test for Tile Component and added 'Enzyme' for Component Testing. Added tests for Tile Component to test if expected img src is chosen based on TileData." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added snapshot test for Tile Component and added 'Enzyme' for Component Testing. Added tests for Tile Component to test if expected img src is chosen based on TileData." />
+    <MESSAGE value="Further UI Improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Further UI Improvements" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/'browserify" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="544">
-            <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/img/End_Lit.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/React_Tutorial.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/app.test.js" />
-    <entry file="file://$USER_HOME$/Desktop/sadsad.txt" />
     <entry file="file://$PROJECT_DIR$/src/js/_error.js" />
     <entry file="file://$PROJECT_DIR$/src/js/_random.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1108,13 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/GameUI.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1017">
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/StageCounter.react.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1136,24 +1113,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/img/L-Tile_Lit.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/img/L-Tile.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/img/T-Tile.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/img/X-Tile.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/img/T-Tile_Lit.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@fortawesome/fontawesome-free/js/fontawesome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1581">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/app.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/html/app.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="30" />
+        <state relative-caret-position="442">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/GameUI.react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="110" column="139" selection-start-line="110" selection-start-column="139" selection-end-line="110" selection-end-column="139" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/app.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+          <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
         </state>
       </provider>
     </entry>

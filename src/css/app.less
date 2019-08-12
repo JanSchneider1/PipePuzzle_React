@@ -2,12 +2,7 @@
   light: #56c8d8;
   midtone: #0097a7;
   dark: #006978;
-}
-
-@secondaryColors: {
-  light: #bd9b8f;
-  midtone: #8c6d62;
-  dark: #5e4238;
+  darker: #003539;
 }
 
 /* When container-fly-in animation starts, the scrollbar appears,
@@ -69,12 +64,16 @@
   margin-top: 3%;
 }
 .tile img{
-  border-radius: 25%;
+  border-radius: 0%;
   padding: 7%;
   image-rendering: crisp-edges;
+  transform: scale(1,1);
+  transition: transform 0.5s cubic-bezier(.07,.95,.55,.95), border-radius 0.25s;
 }
 .tile img:hover{
-  animation: focus 1s forwards;
+  border-radius: 15%;
+  transform: scale(1.2, 1.2);
+  transition: transform 0.5s, border-radius 0.25s;
 }
 
 .hud-turn-counter{
@@ -91,6 +90,14 @@
   background-color: @primaryColors[dark];
   color: white;
   font-size: 3em;
+}
+
+.github-icon{
+  color: @primaryColors[darker];
+  position: fixed;
+  top: 90vh;
+  left: 95vw;
+  font-size: 2vw;
 }
 
 // Apply to tiles to rotate
@@ -124,8 +131,12 @@
 }
 
 @keyframes focus {
+  50%{
+    border-radius: 25%;
+  }
   100%{
     transform: scale(1.2, 1.2);
+    border-radius: 25%;
   }
 }
 

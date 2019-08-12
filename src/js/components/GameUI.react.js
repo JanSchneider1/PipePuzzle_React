@@ -108,6 +108,7 @@ class GameUI extends React.Component{
                          onStageComplete={this.onStageComplete}
                          onTileClick={this.onTileClick}
                 />
+                <a href="https://github.com/JanSchneider1/React_Tutorial" target="_blank"><i className="fab fa-github github-icon"></i></a>
             </div>
         );
     }
