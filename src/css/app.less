@@ -1,16 +1,31 @@
+@primaryColors: {
+  light: #56c8d8;
+  midtone: #0097a7;
+  dark: #006978;
+}
+
+@secondaryColors: {
+  light: #bd9b8f;
+  midtone: #8c6d62;
+  dark: #5e4238;
+}
+
+.bg {
+  background-color: #e0e0e0;
+}
+
 #app{
-  background-color: lightblue;
+  background-color: @primaryColors[midtone];
   width: 80%;
   margin-left: 10%;
+  margin-top: 5%;
+  padding-bottom: 3%;
+  border-radius: 20px;
 }
 
 *{
   text-align: center;
-
-  //font-family: 'Saira Stencil One', cursive;
-  font-family: 'Days One', sans-serif;
-  //font-family: 'Michroma', sans-serif;
-  //font-family: 'Rationale', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .game-6by3{
@@ -39,15 +54,13 @@
 }
 
 .tile img{
-  border-radius: 15px 15px 15px 15px;
-  border: 5px inset rgba(0, 0, 0, 0);
+  border-radius: 25%;
+  padding: 5%;
   image-rendering: crisp-edges;
 }
-
 .tile img:hover{
   animation: focus 1s forwards;
 }
-
 
 // Apply to tiles to rotate
 .rotate-0{
@@ -64,15 +77,6 @@
 }
 
 // Animation
-@keyframes flip{
-  0%{
-    transform: scale(0, 0);
-  }
-  100%{
-    transform: scale(1, 1);
-  }
-}
-
 @keyframes focus {
   100%{
     transform: scale(1.2, 1.2);
