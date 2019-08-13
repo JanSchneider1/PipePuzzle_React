@@ -2,7 +2,7 @@ const React = require("react");
 const { create } = require("react-test-renderer");
 const { shallow } = require("enzyme");
 
-const { HUD } = require("../src/js/components/HUD.react");
+const { HUD } = require("../../src/js/components/HUD.react");
 
 test("Creating HUD matches Snapshot", () => {
   const component = create(

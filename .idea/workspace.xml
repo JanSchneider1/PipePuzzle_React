@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2224fa84-d760-4450-a8ca-a5bbea55bed3" name="Default Changelist" comment="Fixing css">
-      <change afterPath="$PROJECT_DIR$/test/GameOver.react.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/HUD.react.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/StageCounter.react.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Tilemap.react.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/Timer.react.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/TurnCounter.react.test.js" afterDir="false" />
+    <list default="true" id="2224fa84-d760-4450-a8ca-a5bbea55bed3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/GameOver.react.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/components/GameOver.react.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/HUD.react.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/components/HUD.react.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/StageCounter.react.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/components/StageCounter.react.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Tile.react.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/components/Tile.react.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Tilemap.react.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/components/Tilemap.react.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Timer.react.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/components/Timer.react.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TurnCounter.react.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/components/TurnCounter.react.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,91 +24,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/TurnCounter.react.test.js">
+        <entry file="file://$PROJECT_DIR$/src/js/components/GameUI.react.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="2" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/GameOver.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/GameOver.react.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="31" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/Tilemap.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/_generator.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/HUD.react.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/HUD.react.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/_game.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="190" column="60" selection-start-line="190" selection-start-column="60" selection-end-line="196" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/Tilemap.react.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="6" />
+            <state relative-caret-position="1807">
+              <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/GameUI.react.test.js">
+        <entry file="file://$PROJECT_DIR$/test/components/GameUI.react.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="430">
+              <caret line="231" column="3" selection-start-line="231" selection-start-column="3" selection-end-line="231" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -139,7 +66,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/js/game.js" />
         <option value="$PROJECT_DIR$/test/test.js" />
@@ -190,6 +116,7 @@
         <option value="$PROJECT_DIR$/test/HUD.react.test.js" />
         <option value="$PROJECT_DIR$/test/Tilemap.react.test.js" />
         <option value="$PROJECT_DIR$/test/GameUI.react.test.js" />
+        <option value="$PROJECT_DIR$/test/components/GameUI.react.test.js" />
       </list>
     </option>
   </component>
@@ -218,6 +145,12 @@
               <item name="React_Tutorial" type="b2602c69:ProjectViewProjectNode" />
               <item name="React_Tutorial" type="462c0819:PsiDirectoryNode" />
               <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="React_Tutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="React_Tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="React_Tutorial" type="b2602c69:ProjectViewProjectNode" />
@@ -278,6 +211,12 @@
               <item name="React_Tutorial" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="React_Tutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="React_Tutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -288,7 +227,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565689402050" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565690071739" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -298,15 +237,16 @@
     <property name="settings.editor.splitter.proportion" value="0.2141577" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\resources\img" />
-      <recent name="C:\Users\Jan\IdeaProjects\React_Tutorial\resources\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\test\components" />
       <recent name="C:\Users\Jan\IdeaProjects\React_Tutorial\resources\img" />
       <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial" />
       <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\src\static" />
       <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\src\static\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jschneider\IdeaProjects\React_Tutorial\resources\img" />
+      <recent name="C:\Users\Jan\IdeaProjects\React_Tutorial\resources\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -416,7 +356,7 @@
       <workItem from="1565069025264" duration="16766000" />
       <workItem from="1565160266799" duration="13285000" />
       <workItem from="1565593544953" duration="16614000" />
-      <workItem from="1565673446613" duration="13247000" />
+      <workItem from="1565673446613" duration="13916000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Babel">
       <created>1563954411691</created>
@@ -740,7 +680,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565682494614</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Added more snapshot tests">
+      <created>1565689508826</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1565689508826</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -776,7 +723,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271205000" />
+    <option name="totallyTimeSpent" value="271874000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -899,7 +846,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added tests for evaluation algorithm" />
     <MESSAGE value="Functionality to rotate tiles and update tilemap evaluation" />
     <MESSAGE value="Added End_Lit tile" />
     <MESSAGE value="Added some css to tiles" />
@@ -924,10 +870,10 @@
     <MESSAGE value="Further UI Improvements" />
     <MESSAGE value="Added game over screen" />
     <MESSAGE value="Fixing css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing css" />
+    <MESSAGE value="Added more snapshot tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more snapshot tests" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/__snapshots__/Tile.react.test.js.snap" />
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
@@ -972,13 +918,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/img/X-Tile_Lit.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/GameUI.react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -1038,20 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-913">
           <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/html/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/app.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1117,17 +1042,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/StageCounter.react.test.js">
+    <entry file="file://$PROJECT_DIR$/test/components/StageCounter.react.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Tile.react.test.js">
+    <entry file="file://$PROJECT_DIR$/test/components/Tile.react.test.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Timer.react.test.js">
+    <entry file="file://$PROJECT_DIR$/test/components/Timer.react.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="19" selection-end-column="3" />
@@ -1141,14 +1066,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/_generator.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/TurnCounter.react.test.js">
+    <entry file="file://$PROJECT_DIR$/test/components/TurnCounter.react.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="2" selection-end-column="38" />
@@ -1169,6 +1087,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/components/Tilemap.react.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/components/HUD.react.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/components/GameOver.react.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/app.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2103">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/minified/js/app_deploy.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/HUD.react.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1176,31 +1132,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Tilemap.react.test.js">
+    <entry file="file://$PROJECT_DIR$/test/_generator.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="6" />
+        <state relative-caret-position="124">
+          <caret line="364" selection-start-line="364" selection-end-line="367" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/HUD.react.test.js">
+    <entry file="file://$PROJECT_DIR$/src/js/components/GameUI.react.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
+        <state relative-caret-position="1807">
+          <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/GameOver.react.test.js">
+    <entry file="file://$PROJECT_DIR$/test/components/GameUI.react.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="31" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/GameUI.react.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        <state relative-caret-position="430">
+          <caret line="231" column="3" selection-start-line="231" selection-start-column="3" selection-end-line="231" selection-end-column="3" />
         </state>
       </provider>
     </entry>

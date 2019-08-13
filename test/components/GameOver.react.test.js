@@ -2,7 +2,7 @@ const React = require("react");
 const { create } = require("react-test-renderer");
 const { shallow } = require("enzyme");
 
-const { GameOver } = require("../src/js/components/GameOver.react");
+const { GameOver } = require("../../src/js/components/GameOver.react");
 
 test("Creating GameOver matches Snapshot", () => {
   const component = create(<GameOver gameOver={true} />);

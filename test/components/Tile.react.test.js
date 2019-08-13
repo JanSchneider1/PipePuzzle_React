@@ -2,8 +2,8 @@ const React = require("react");
 const { create } = require("react-test-renderer");
 const { shallow } = require("enzyme");
 
-const { Tile } = require("../src/js/components/Tile.react");
-const { TileData } = require("../src/js/_tiledata");
+const { Tile } = require("../../src/js/components/Tile.react");
+const { TileData } = require("../../src/js/_tiledata");
 
 test("Creating Tile matches Snapshot", () => {
   const component = create(<Tile data={new TileData("-", 0)} />);
