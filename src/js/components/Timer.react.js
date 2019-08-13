@@ -1,3 +1,5 @@
+const React = require('react');
+
 class Timer extends React.Component{
     componentDidMount(){
         this.clock = setInterval(
@@ -13,7 +15,7 @@ class Timer extends React.Component{
     render() {
         return (
             <div className="hud-timer col-4">
-                {this.props.timer.minutes}:{this.props.timer.seconds}
+                Time: {this.props.timer.minutes}:{this.props.timer.seconds}
             </div>
         );
     }

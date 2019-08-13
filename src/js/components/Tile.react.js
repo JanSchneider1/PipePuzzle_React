@@ -1,3 +1,5 @@
+const React = require('react');
+
 class Tile extends React.Component{
     constructor(props){
         super(props);

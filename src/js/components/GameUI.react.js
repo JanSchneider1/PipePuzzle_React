@@ -1,6 +1,9 @@
+const React = require('react');
+
 const { Game } = require("../_game");
 const { HUD } = require(".//HUD.react");
 const { Tilemap } = require(".//Tilemap.react");
+const { GameOver } = require(".//GameOver.react");
 
 class GameUI extends React.Component{
     constructor(props){
@@ -15,11 +18,29 @@ class GameUI extends React.Component{
             timer: {
                 seconds: 59,
                 minutes: 2,
-            }
+            },
+            gameOver: false,
         };
         this.onStageComplete = this.onStageComplete.bind(this);
         this.onTileClick = this.onTileClick.bind(this);
         this.onTimerTick = this.onTimerTick.bind(this);
+        this.resetGame = this.resetGame.bind(this);
+    }
+
+    resetGame(){
+        this.setState((state) => ({
+            game: new Game(6, 3),
+            turns: 0,
+            stage: 1,
+            normalAtStage: 2,
+            hardAtStage: 5,
+            type: '6by3',
+            timer: {
+                seconds: 59,
+                minutes: 2,
+            },
+            gameOver: false,
+        }));
     }
 
     onTileClick(x, y){
@@ -43,7 +64,9 @@ class GameUI extends React.Component{
     }
 
     onLose(){
-        alert("GAME OVER");
+        this.setState((state) => ({
+            gameOver: true
+        }));
     }
 
     onTimerTick(){
@@ -97,6 +120,7 @@ class GameUI extends React.Component{
     render() {
         return (
             <div className={"game " + "game-" + this.state.type}>
+                <GameOver stage={this.state.stage} gameOver={this.state.gameOver} resetGame={this.resetGame}/>
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
                      timer={this.state.timer}
@@ -106,6 +130,7 @@ class GameUI extends React.Component{
                          onStageComplete={this.onStageComplete}
                          onTileClick={this.onTileClick}
                 />
+                <a href="https://github.com/JanSchneider1/React_Tutorial" target="_blank"><i className="fab fa-github github-icon"> </i></a>
             </div>
         );
     }
