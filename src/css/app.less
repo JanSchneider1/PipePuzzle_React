@@ -3,17 +3,29 @@
   midtone: #0097a7;
   dark: #006978;
   darker: #003539;
+  gray: #e0e0e0;
 }
 
 /* When container-fly-in animation starts, the scrollbar appears,
  * As the container is out of the initial screen. This looks weird,
  * So we hide the scrollbar, as we don't need it at this specific size.
- * This is an ideal solution, as it can mess up the scrollbar in other sizes too.
  */
 @media screen and(min-width: 1480px) {
-  body {
-    overflow: hidden;
-  }
+  body { overflow: hidden; }
+}
+
+.background { background-color: @primaryColors[gray]; }
+
+#app{
+  width: 80%;
+  height: 90%;
+  margin: 3% 0 0 10%;
+  padding-bottom: 3%;
+  border-radius: 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: @primaryColors[midtone];
+  animation: container-fly-in 1.5s cubic-bezier(.17, .84, .44, 1);
 }
 
 .game-over-header{
@@ -22,8 +34,6 @@
   background-color: @primaryColors[light];
 }
 .game-over-stage-counter{
-  border: 1px solid white;
-  border-radius: 25px;
   font-size: 35px;
 }
 .game-over{
@@ -40,33 +50,14 @@
   height: 30vh;
   background-color: white;
   z-index: 1;
-  border-radius: 0% 0% 50px 50px;
+  border-radius: 0 0 50px 50px;
   font-size: 25px;
   animation: appear 1.5s ease-out;
 }
 
-.bg {
-  background-color: #e0e0e0;
-}
-
-#app{
-  background-color: @primaryColors[midtone];
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 3.5%;
-  padding-bottom: 3%;
-  border-radius: 20px;
-  animation: container-fly-in 1.5s cubic-bezier(.17, .84, .44, 1);
-}
-
-*{
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-}
-
 .game-6by3{
   .tilemap{
-    margin-left: 10vmax !important;
+    margin-left: 6vmax !important;
   }
   .tile img{
     height: 10vmax;
@@ -74,7 +65,7 @@
 }
 .game-9by5{
   .tilemap{
-    margin-left: 13vmax !important;
+    margin-left: 6vmax !important;
   }
   .tile img{
     height: 6vmax;
@@ -82,7 +73,7 @@
 }
 .game-12by7{
   .tilemap{
-    margin-left: 10vmax !important;
+    margin-left: 1vmax !important;
   }
   .tile img{
     height: 5vmax;
@@ -93,13 +84,15 @@
   margin-top: 3%;
 }
 .tile img{
-  border-radius: 0%;
-  padding: 7%;
+  border-radius: 0;
+  margin: 0.75vw;
   image-rendering: crisp-edges;
   transform: scale(1,1);
   transition: transform 0.5s cubic-bezier(.07,.95,.55,.95), border-radius 0.25s;
 }
 .tile img:hover{
+  filter: contrast(130%);
+  box-shadow: 0 0 0 3px white;
   border-radius: 15%;
   transform: scale(1.2, 1.2);
   transition: transform 0.5s, border-radius 0.25s;
@@ -132,10 +125,10 @@
   color: @primaryColors[darker];
   position: fixed;
   top: 45vh;
-  left: 92vw;
+  left: 86vw;
   font-size: 5vw;
-  background-color: white;
-  border: 20px solid white;
+  background-color: @primaryColors[gray];
+  border: 20px solid @primaryColors[gray];
   border-radius: 50vw;
 }
 

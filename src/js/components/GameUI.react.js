@@ -131,7 +131,6 @@ class GameUI extends React.Component{
                          onTileClick={this.onTileClick}
                 />
                 <a href="https://github.com/JanSchneider1/React_Tutorial" target="_blank"><i className="fab fa-github github-icon"> </i></a>
-                <i className="fas fa-cog options-icon"> </i>
             </div>
         );
     }
