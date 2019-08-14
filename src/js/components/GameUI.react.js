@@ -54,13 +54,6 @@ class GameUI extends React.Component{
             game: this.state.game,
             turns: ++this.state.turns
         }));
-        /*
-        else{
-            this.setState((state) => ({
-                game: this.state.game,
-                turns: ++this.state.turns
-            }));
-        }*/
     }
 
     onLose(){

@@ -14,7 +14,7 @@ test("Creating Tile matches Snapshot", () => {
     >
       <img
         alt="Tile"
-        className="tile-img undefined"
+        className="tile-img undefined lit-false"
         onClick={[Function]}
         src="/img/Empty_Tile.png"
       />

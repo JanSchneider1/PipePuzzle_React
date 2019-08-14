@@ -8,25 +8,32 @@ test("Creating GameOver matches Snapshot", () => {
   const component = create(<GameOver gameOver={true} />);
   let tree = component.toJSON();
   expect(tree).toMatchInlineSnapshot(`
-    <div
-      className="game-over shadow-lg"
-    >
-      <p
-        className="game-over-header"
+    <div>
+      <div
+        className="game-over-overlay"
       >
-        Game Over!
-      </p>
-      <p>
-        You have reached stage:
-      </p>
-      <p
-        className="game-over-stage-counter"
-      />
-      <button
-        className="btn"
+         
+      </div>
+      <div
+        className="game-over shadow-lg"
       >
-        Try Again!
-      </button>
+        <p
+          className="game-over-header"
+        >
+          Game Over!
+        </p>
+        <p>
+          You have reached stage:
+        </p>
+        <p
+          className="game-over-stage-counter"
+        />
+        <button
+          className="btn"
+        >
+          Try Again!
+        </button>
+      </div>
     </div>
   `);
 });
