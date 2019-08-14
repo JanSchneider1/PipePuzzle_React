@@ -17,9 +17,8 @@
 .background { background-color: @primaryColors[gray]; }
 
 #app{
-  width: 80%;
-  height: 90%;
-  margin: 3% 0 0 10%;
+  width: 70%;
+  margin: 3% 0 0 15%;
   padding-bottom: 3%;
   border-radius: 20px;
   text-align: center;
@@ -28,87 +27,73 @@
   animation: container-fly-in 1.5s cubic-bezier(.17, .84, .44, 1);
 }
 
-.game-over-header{
-  padding-top: 5px;
-  font-size: 50px;
-  background-color: @primaryColors[light];
-}
-.game-over-stage-counter{
-  font-size: 35px;
-}
 .game-over{
-  button{
-    margin-top: -12px;
-    font-size: 30px;
-    color: white;
-    background-color: @primaryColors[darker];
-  }
   position: absolute;
   top: 35vh;
   left: 35vw;
   width: 30vw;
-  height: 30vh;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
   border-radius: 0 0 50px 50px;
-  font-size: 25px;
+  font-size: 2.5em;
   animation: appear 1.5s ease-out;
-}
-
-.game-6by3{
-  .tilemap{
-    margin-left: 6vmax !important;
+  p { padding: 0 5px 0 5px; }
+  .btn{
+    margin: -12px 0 5px 0;
+    color: white;
+    font-size: 1em;
+    background-color: @primaryColors[darker];
   }
-  .tile img{
-    height: 10vmax;
+  &-header{
+    padding-top: 5px;
+    background-color: @primaryColors[light];
   }
-}
-.game-9by5{
-  .tilemap{
-    margin-left: 6vmax !important;
-  }
-  .tile img{
-    height: 6vmax;
-  }
-}
-.game-12by7{
-  .tilemap{
-    margin-left: 1vmax !important;
-  }
-  .tile img{
-    height: 5vmax;
+  &-overlay{
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.38);
+    animation: appear 1.5s ease-out;
   }
 }
 
 .tilemap{
   margin-top: 3%;
+  &.game-6by3{ margin-left: 6.5vmax; }
+  &.game-9by5{ margin-left: 7vmax; }
+  &.game-12by7{ margin-left: 9vmax; }
 }
-.tile img{
+
+.tile-img{
+  &.game-6by3{
+    height: 8vmax;
+    margin: 0.75vmax;
+  }
+  &.game-9by5{
+    height: 5.25vmax;
+    margin: 0.5vmax;
+  }
+  &.game-12by7{
+    height: 3.5vmax;
+    margin: 0.45vmax;
+  }
   border-radius: 0;
-  margin: 0.75vw;
   image-rendering: crisp-edges;
   transform: scale(1,1);
   transition: transform 0.5s cubic-bezier(.07,.95,.55,.95), border-radius 0.25s;
-}
-.tile img:hover{
-  filter: contrast(130%);
-  box-shadow: 0 0 0 3px white;
-  border-radius: 15%;
-  transform: scale(1.2, 1.2);
-  transition: transform 0.5s, border-radius 0.25s;
+  &:hover{
+    &.lit-false{ filter: contrast(130%); }
+    box-shadow: 0 0 0 3px white;
+    border-radius: 15%;
+    transform: scale(1.2, 1.2);
+    transition: transform 0.5s, border-radius 0.25s;
+  }
 }
 
-.hud-turn-counter{
-  background-color: @primaryColors[dark];
-  color: white;
-  font-size: 3em;
-}
-.hud-stage-counter{
-  background-color: @primaryColors[dark];
-  color: white;
-  font-size: 3em;
-}
-.hud-timer{
+.hud{
   background-color: @primaryColors[dark];
   color: white;
   font-size: 3em;
@@ -121,30 +106,12 @@
   left: 95vw;
   font-size: 2vw;
 }
-.options-icon{
-  color: @primaryColors[darker];
-  position: fixed;
-  top: 45vh;
-  left: 86vw;
-  font-size: 5vw;
-  background-color: @primaryColors[gray];
-  border: 20px solid @primaryColors[gray];
-  border-radius: 50vw;
-}
 
 // Apply to tiles to rotate
-.rotate-0{
-  animation: rotate-360 0.5s forwards;
-}
-.rotate-1{
-  animation: rotate-90 0.5s forwards;
-}
-.rotate-2{
-  animation: rotate-180 0.5s forwards;
-}
-.rotate-3{
-  animation: rotate-270 0.5s forwards;
-}
+.rotate-0{ animation: rotate-360 0.5s forwards; }
+.rotate-1{ animation: rotate-90 0.5s forwards; }
+.rotate-2{ animation: rotate-180 0.5s forwards; }
+.rotate-3{ animation: rotate-270 0.5s forwards; }
 
 // Animation
 @keyframes container-fly-in {
@@ -163,18 +130,12 @@
 }
 
 @keyframes appear{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
+  0%{ opacity: 0; }
+  100%{ opacity: 1; }
 }
 
 @keyframes focus {
-  50%{
-    border-radius: 25%;
-  }
+  50%{ border-radius: 25%; }
   100%{
     transform: scale(1.2, 1.2);
     border-radius: 25%;

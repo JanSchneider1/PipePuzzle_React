@@ -14,6 +14,7 @@ test("Creating Tile matches Snapshot", () => {
     >
       <img
         alt="Tile"
+        className="tile-img undefined lit-false"
         onClick={[Function]}
         src="/img/Empty_Tile.png"
       />
@@ -62,8 +63,11 @@ describe('Test if created tile has expected "rotation"-class based on TileData',
   `(
     'Creating Tile with TileData{"-", $rotation} has class = $expectedRotationClass',
     ({ rotation, expectedRotationClass }) => {
-      expect(shallow(<Tile data={new TileData("-", rotation)} />).find("." + expectedRotationClass).length)
-          .toBe(1);
+      expect(
+        shallow(<Tile data={new TileData("-", rotation)} />).find(
+          "." + expectedRotationClass
+        ).length
+      ).toBe(1);
     }
   );
 });

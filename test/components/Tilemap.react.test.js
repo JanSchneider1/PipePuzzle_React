@@ -16,7 +16,7 @@ test("Creating Tile matches Snapshot", () => {
   let tree = component.toJSON();
   expect(tree).toMatchInlineSnapshot(`
     <div
-      className="tilemap container-fluid"
+      className="tilemap container-fluid undefined"
     >
       <div
         className="row"
@@ -26,6 +26,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/X-Tile.png"
           />
@@ -35,6 +36,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/I-Tile.png"
           />
@@ -44,6 +46,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/Empty_Tile.png"
           />
@@ -57,6 +60,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-true"
             onClick={[Function]}
             src="/img/Start.png"
           />
@@ -66,6 +70,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/X-Tile.png"
           />
@@ -75,6 +80,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/T-Tile.png"
           />
@@ -88,6 +94,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/X-Tile.png"
           />
@@ -97,6 +104,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/I-Tile.png"
           />
@@ -106,6 +114,7 @@ test("Creating Tile matches Snapshot", () => {
         >
           <img
             alt="Tile"
+            className="tile-img undefined lit-false"
             onClick={[Function]}
             src="/img/L-Tile.png"
           />

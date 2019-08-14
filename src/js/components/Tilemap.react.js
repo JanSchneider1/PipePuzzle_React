@@ -17,6 +17,7 @@ class Tilemap extends React.Component{
                           x={x}
                           y={y}
                           onTileClick={this.props.onTileClick}
+                          type={this.props.type}
                     />
                 );
             }
@@ -31,7 +32,7 @@ class Tilemap extends React.Component{
 
     render() {
         return (
-            <div className="tilemap container-fluid">
+            <div className={"tilemap container-fluid " + this.props.type}>
                 {this.createTiles()}
             </div>
         );

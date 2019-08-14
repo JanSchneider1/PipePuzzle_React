@@ -13,7 +13,7 @@ class Tile extends React.Component{
     render() {
         return (
             <div className={"tile " + this.applyRotationClass()}>
-                <img onClick={this.handleClick} alt="Tile" src={this.getImgBasedOnType()}/>
+                <img className={"tile-img " + this.props.type + " lit-" + this.props.data.isLit} onClick={this.handleClick} alt="Tile" src={this.getImgBasedOnType()}/>
             </div>
         );
 

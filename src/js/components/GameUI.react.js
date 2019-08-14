@@ -14,7 +14,7 @@ class GameUI extends React.Component{
             stage: 1,
             normalAtStage: 2,
             hardAtStage: 5,
-            type: '6by3',
+            type: 'game-6by3',
             timer: {
                 seconds: 59,
                 minutes: 2,
@@ -34,7 +34,7 @@ class GameUI extends React.Component{
             stage: 1,
             normalAtStage: 2,
             hardAtStage: 5,
-            type: '6by3',
+            type: 'game-6by3',
             timer: {
                 seconds: 59,
                 minutes: 2,
@@ -54,13 +54,6 @@ class GameUI extends React.Component{
             game: this.state.game,
             turns: ++this.state.turns
         }));
-        /*
-        else{
-            this.setState((state) => ({
-                game: this.state.game,
-                turns: ++this.state.turns
-            }));
-        }*/
     }
 
     onLose(){
@@ -98,15 +91,15 @@ class GameUI extends React.Component{
         let type;
         if (this.state.stage + 1 > this.state.hardAtStage){
             nextGame = new Game(12, 7);
-            type = '12by7';
+            type = 'game-12by7';
         }
         else if (this.state.stage + 1 > this.state.normalAtStage){
             nextGame = new Game(9, 5);
-            type = '9by5';
+            type = 'game-9by5';
         }
         else {
             nextGame = new Game(6, 3);
-            type = '6by3';
+            type = 'game-6by3';
         }
 
         this.setState((state) => ({
@@ -119,14 +112,15 @@ class GameUI extends React.Component{
 
     render() {
         return (
-            <div className={"game " + "game-" + this.state.type}>
+            <div className={"game " + this.state.type}>
                 <GameOver stage={this.state.stage} gameOver={this.state.gameOver} resetGame={this.resetGame}/>
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
                      timer={this.state.timer}
                      onTimerTick={this.onTimerTick}
                 />
-                <Tilemap tileMapData={this.state.game.tileMapData}
+                <Tilemap type={this.state.type}
+                         tileMapData={this.state.game.tileMapData}
                          onStageComplete={this.onStageComplete}
                          onTileClick={this.onTileClick}
                 />
