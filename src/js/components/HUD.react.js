@@ -12,9 +12,7 @@ class HUD extends React.Component{
                     <TurnCounter turns={this.props.turns}/>
                     <Timer timer={this.props.timer}
                            onTimerTick={this.props.onTimerTick}
-                           addedTimeSeconds={this.props.addedTimeSeconds}
-                           addedTimeMinutes={this.props.addedTimeMinutes}
-                           resetFlash={this.props.resetFlash}
+                           earnedSeconds={this.props.earnedSeconds}
                     />
                     <StageCounter stage={this.props.stage}/>
                 </div>

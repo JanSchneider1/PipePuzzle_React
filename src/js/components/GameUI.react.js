@@ -51,8 +51,7 @@ class GameUI extends React.Component{
                 normal: 30,
                 hard: 45,
             },
-            addedTimeSeconds: -1,
-            addedTimeMinutes: -1,
+            earnedSeconds: -1,
         }));
     }
 
@@ -142,8 +141,7 @@ class GameUI extends React.Component{
         let minutes = Math.floor((this.state.timer.seconds + timeInSeconds) / 60);
         let seconds = (this.state.timer.seconds + timeInSeconds) % 60;
         this.setState((state) => ({
-            addedTimeSeconds: state.timer.seconds % 60,
-            addedTimeMinutes: Math.floor(state.timer.seconds / 60),
+            earnedSeconds: timeInSeconds,
             timer: {
                 minutes: state.timer.minutes + minutes,
                 seconds: seconds
@@ -158,8 +156,7 @@ class GameUI extends React.Component{
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
                      timer={this.state.timer}
-                     addedTimeSeconds={this.state.addedTimeSeconds}
-                     addedTimeMinutes={this.state.addedTimeMinutes}
+                     earnedSeconds={this.state.earnedSeconds}
                      onTimerTick={this.onTimerTick}
                 />
                 <Tilemap type={this.state.type}

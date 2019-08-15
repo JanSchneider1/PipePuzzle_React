@@ -14,13 +14,12 @@ class Timer extends React.Component{
 
     render() {
         let popup;
-        if (this.props.addedTimeSeconds >= 0 || this.props.addedTimeMinutes >= 0 ){
+        if (this.props.earnedSeconds >= 0 ){
             popup = (
                 <div id="popup" className="container-fluid popup">
-                    <p className="popup-text">{this.props.addedTimeMinutes + ":" + this.props.addedTimeSeconds}</p>
+                    <p className="popup-text">You earned {this.props.earnedSeconds} sec.</p>
                 </div>
             );
-
         }
         return (
             <div className="hud-timer col-4" id="timer">
