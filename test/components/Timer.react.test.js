@@ -10,6 +10,7 @@ test("Creating Timer matches Snapshot", () => {
   expect(tree).toMatchInlineSnapshot(`
     <div
       className="hud-timer col-4"
+      id="timer"
     >
       Time: 
       3

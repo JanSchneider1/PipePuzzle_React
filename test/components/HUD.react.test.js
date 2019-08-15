@@ -24,6 +24,7 @@ test("Creating HUD matches Snapshot", () => {
         </div>
         <div
           className="hud-timer col-4"
+          id="timer"
         >
           Time: 
           3
