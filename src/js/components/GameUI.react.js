@@ -19,6 +19,7 @@ class GameUI extends React.Component{
             type: 'game-6by3',
             displayTime: this.timer.getFormattedTime(),
             gameOver: false,
+            currentSolved: false,
         };
         this.onStageComplete = this.onStageComplete.bind(this);
         this.onTileClick = this.onTileClick.bind(this);
@@ -36,6 +37,7 @@ class GameUI extends React.Component{
             displayTime: this.timer.getFormattedTime(),
             gameOver: false,
             earnedSeconds: -1,
+            currentSolved: false,
         });
     }
 
@@ -43,13 +45,14 @@ class GameUI extends React.Component{
         const tile = this.state.game.getTileAtPos(x, y);
         tile.rotateClockWise();
         this.state.game.evaluateTileMap();
-        if (this.state.game.isSolved){
-            setTimeout(() => this.onStageComplete(), 500);
-        }
         this.setState((state) => ({
             game: state.game,
-            turns: ++state.turns
+            turns: ++state.turns,
         }));
+        if (this.state.game.isSolved && !this.state.currentSolved){
+            this.setState({ currentSolved: true });
+            setTimeout(() => this.onStageComplete(), 500);
+        }
     }
 
     onLose(){
@@ -83,7 +86,8 @@ class GameUI extends React.Component{
             turns: 0,
             stage: ++state.stage,
             game: nextGame,
-            type: type
+            type: type,
+            currentSolved: false,
         }));
         this.forceAnimationToResetAndPlay();
     }
