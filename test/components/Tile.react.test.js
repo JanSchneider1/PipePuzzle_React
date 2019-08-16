@@ -22,6 +22,15 @@ test("Creating Tile matches Snapshot", () => {
   `);
 });
 
+test("Triggering 'handleClick' causes 'onTileClick' to be called", () => {
+    // Given
+    let tile = shallow(<Tile data={new TileData("-", 0)} onTileClick={jest.fn()}/>);
+    // When
+    tile.instance().handleClick();
+    // Then
+    expect(tile.instance().props.onTileClick).toHaveBeenCalledTimes(1);
+});
+
 describe("Test if created tile has the expected img src based on TileData", () => {
   test.each`
     type   | isLit    | expectedImgSrc

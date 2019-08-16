@@ -23,7 +23,7 @@ class Timer extends React.Component{
         }
         return (
             <div className="hud-timer col-4" id="timer">
-                Time: {this.props.timer.minutes}:{this.props.timer.seconds}
+                Time: {this.props.timer}
                 {popup}
             </div>
         );

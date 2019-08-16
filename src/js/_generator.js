@@ -105,6 +105,9 @@ class Generator{
             else if(currentDirection === 'down'){
                 currentPos[1]++;
             }
+            else{
+                throw new Error(`CurrentDirection = ${currentDirection} is not a valid value for direction`);
+            }
         }
         // Find way to end pos in last column
 
@@ -120,9 +123,7 @@ class Generator{
                 if (this.endPos[1] > currentPos[1]) {
                     currentPos[1]++;
                 }
-                else if(this.endPos[1] < currentPos[1]){
-                    currentPos[1]--;
-                }
+                else{ currentPos[1]--; }
                 tilemap[currentPos[1]][currentPos[0]] = this.randomStraightTile();
             }
             // Last tile is angular as we come from above / below

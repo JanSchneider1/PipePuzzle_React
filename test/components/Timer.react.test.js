@@ -3,9 +3,16 @@ const { create } = require("react-test-renderer");
 const { shallow } = require("enzyme");
 
 const { Timer } = require("../../src/js/components/Timer.react");
+const { TimerClock } = require("../../src/js/_timerclock");
+
+beforeEach(() => {
+  jest.useFakeTimers();
+});
 
 test("Creating Timer matches Snapshot", () => {
-  const component = create(<Timer timer={{ minutes: 3, seconds: 59 }} />);
+  const component = create(
+    <Timer timer={new TimerClock(3, 59).getFormattedTime()} earnedSeconds={3} />
+  );
   let tree = component.toJSON();
   expect(tree).toMatchInlineSnapshot(`
     <div
@@ -13,9 +20,19 @@ test("Creating Timer matches Snapshot", () => {
       id="timer"
     >
       Time: 
-      3
-      :
-      59
+      3:59
+      <div
+        className="container-fluid popup"
+        id="popup"
+      >
+        <p
+          className="popup-text"
+        >
+          You earned 
+          3
+           sec.
+        </p>
+      </div>
     </div>
   `);
 });

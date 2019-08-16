@@ -2,9 +2,18 @@ const React = require('react');
 const $ = require("jquery");
 
 const { Game } = require("../_game");
+const { TimerClock } = require("../_timerclock");
 const { HUD } = require(".//HUD.react");
 const { Tilemap } = require(".//Tilemap.react");
 const { GameOver } = require(".//GameOver.react");
+
+const defaultState = {
+
+};
+
+const settings = {
+
+};
 
 class GameUI extends React.Component{
     constructor(props){
@@ -16,10 +25,7 @@ class GameUI extends React.Component{
             normalAtStage: 2,
             hardAtStage: 5,
             type: 'game-6by3',
-            timer: {
-                seconds: 30,
-                minutes: 1,
-            },
+            timer: new TimerClock(1, 30),
             gameOver: false,
             addTimeOnComplete: {
                 easy: 15,
@@ -41,10 +47,7 @@ class GameUI extends React.Component{
             normalAtStage: 2,
             hardAtStage: 5,
             type: 'game-6by3',
-            timer: {
-                seconds: 59,
-                minutes: 2,
-            },
+            timer: new TimerClock(1, 30),
             gameOver: false,
             addTimeOnComplete: {
                 easy: 15,
@@ -69,32 +72,9 @@ class GameUI extends React.Component{
     }
 
     onLose(){
-        this.setState((state) => ({
+        this.setState({
             gameOver: true
-        }));
-    }
-
-    onTimerTick(){
-        let minutes = parseInt(this.state.timer.minutes);
-        let seconds = parseInt(this.state.timer.seconds);
-        if (seconds-1 < 0){
-            if (minutes === 0){
-                this.onLose();
-            }
-            else{
-                minutes--;
-                seconds = 59;
-            }
-        }
-        else{
-            seconds = seconds <= 10 ? `0${seconds-1}` : seconds-1;
-        }
-        this.setState((state) => ({
-            timer:{
-                seconds: seconds,
-                minutes: minutes
-            }
-        }));
+        });
     }
 
     onStageComplete(){
@@ -118,7 +98,7 @@ class GameUI extends React.Component{
             addTime = this.state.addTimeOnComplete.easy - this.state.turns;
         }
         if (addTime < 0) { addTime = 0; }
-        this.addTime(addTime);
+        this.addTimeToTimer(addTime);
         this.setState((state) => ({
             turns: 0,
             stage: ++state.stage,
@@ -137,25 +117,30 @@ class GameUI extends React.Component{
         }, 100);
     }
 
-    addTime(timeInSeconds){
-        let minutes = Math.floor((this.state.timer.seconds + timeInSeconds) / 60);
-        let seconds = (this.state.timer.seconds + timeInSeconds) % 60;
+    onTimerTick() {
         this.setState((state) => ({
+            timer: state.timer.subSeconds(1)
+        }));
+        if (this.state.timer.getFormattedTime() === '0:00'){
+            this.onLose();
+        }
+        console.log(this.state.timer.getFormattedTime());
+    }
+
+    addTimeToTimer(timeInSeconds){
+        this.setState((state) =>({
             earnedSeconds: timeInSeconds,
-            timer: {
-                minutes: state.timer.minutes + minutes,
-                seconds: seconds
-            }
+            timer: state.timer.addSeconds(timeInSeconds)
         }));
     }
 
     render() {
         return (
-            <div className={"game " + this.state.type}>
+            <div>
                 <GameOver stage={this.state.stage} gameOver={this.state.gameOver} resetGame={this.resetGame}/>
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
-                     timer={this.state.timer}
+                     timer={this.state.timer.getFormattedTime()}
                      earnedSeconds={this.state.earnedSeconds}
                      onTimerTick={this.onTimerTick}
                 />

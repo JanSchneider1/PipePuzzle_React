@@ -186,12 +186,12 @@ describe('Creating a random solution returns expected result', () => {
             );
     });
 
-    test("4x3 Generator with randomDirection of down goes expected path", () => {
+    test("Generating random solution throws error when direction is left", () => {
         // Mocks
         generator = new Generator(4, 3);
         generator.randomStraightTile = jest.fn(() => new TileData('I', 0));
         generator.randomAngularTile = jest.fn(() => new TileData('L', 0));
-        generator.randomDirection = jest.fn(() => 'down');
+        generator.randomDirection = jest.fn(() => 'left');
         // Given
         let tilemap = [
             [new TileData('-', 0), null, null, new TileData('-', 0)],
@@ -201,15 +201,9 @@ describe('Creating a random solution returns expected result', () => {
         generator.startPos = [0, 1];
         generator.endPos = [3, 1];
         // When
-        expect(generator.createRandomSolution(tilemap))
-        // Then
-            .toEqual(
-                [
-                    [new TileData('-', 0), null, null, new TileData('-', 0)],
-                    [new TileData('S', 0), new TileData('L', 0), new TileData('L', 0), new TileData('E', 0)],
-                    [new TileData('-', 0), new TileData('L', 0), new TileData('L', 0), new TileData('-', 0)],
-                ]
-            );
+        expect(() => {generator.createRandomSolution(tilemap)})
+            // Then
+            .toThrow(`CurrentDirection = left is not a valid value for direction`);
     });
 
     test("4x5 Generator with randomDirection of up goes expected path", () => {

@@ -3,10 +3,15 @@ const { create } = require("react-test-renderer");
 const { shallow } = require("enzyme");
 
 const { HUD } = require("../../src/js/components/HUD.react");
+const { TimerClock } = require("../../src/js/_timerclock");
 
 test("Creating HUD matches Snapshot", () => {
   const component = create(
-    <HUD timer={{ minutes: 3, seconds: 59 }} turns={10} stage={3} />
+    <HUD
+      timer={new TimerClock(3, 59).getFormattedTime()}
+      turns={10}
+      stage={3}
+    />
   );
   let tree = component.toJSON();
   expect(tree).toMatchInlineSnapshot(`
@@ -27,9 +32,7 @@ test("Creating HUD matches Snapshot", () => {
           id="timer"
         >
           Time: 
-          3
-          :
-          59
+          3:59
         </div>
         <div
           className="hud-stage-counter col-4"
