@@ -7,32 +7,18 @@ const { HUD } = require(".//HUD.react");
 const { Tilemap } = require(".//Tilemap.react");
 const { GameOver } = require(".//GameOver.react");
 
-const defaultState = {
-
-};
-
-const settings = {
-
-};
-
 class GameUI extends React.Component{
     constructor(props){
         super(props);
-        this.timer = new TimerClock(1, 30);
+        this.timer = new TimerClock(this.props.startTime.min, this.props.startTime.sec);
+        // Set start state
         this.state = {
             game: new Game(6, 3),
             turns: 0,
             stage: 1,
-            normalAtStage: 2,
-            hardAtStage: 5,
             type: 'game-6by3',
             displayTime: this.timer.getFormattedTime(),
             gameOver: false,
-            addTimeOnComplete: {
-                easy: 15,
-                normal: 30,
-                hard: 45,
-            }
         };
         this.onStageComplete = this.onStageComplete.bind(this);
         this.onTileClick = this.onTileClick.bind(this);
@@ -42,22 +28,15 @@ class GameUI extends React.Component{
 
     resetGame(){
         this.timer.reset();
-        this.setState((state) => ({
+        this.setState({
             game: new Game(6, 3),
             turns: 0,
             stage: 1,
-            normalAtStage: 2,
-            hardAtStage: 5,
             type: 'game-6by3',
             displayTime: this.timer.getFormattedTime(),
             gameOver: false,
-            addTimeOnComplete: {
-                easy: 15,
-                normal: 30,
-                hard: 45,
-            },
             earnedSeconds: -1,
-        }));
+        });
     }
 
     onTileClick(x, y){
@@ -68,69 +47,67 @@ class GameUI extends React.Component{
             setTimeout(() => this.onStageComplete(), 500);
         }
         this.setState((state) => ({
-            game: this.state.game,
-            turns: ++this.state.turns
+            game: state.game,
+            turns: ++state.turns
         }));
     }
 
     onLose(){
-        this.setState({
-            gameOver: true
-        });
+        this.setState({gameOver: true});
     }
 
     onStageComplete(){
-        // Generate stage of size based on current difficulty
         let nextGame;
         let type;
         let addTime;
-        if (this.state.stage + 1 > this.state.hardAtStage){
+        if (this.state.stage + 1 > this.props.hardAtStage){
             nextGame = new Game(12, 7);
             type = 'game-12by7';
-            addTime = this.state.addTimeOnComplete.hard - this.state.turns;
+            addTime = this.props.addTimeOnComplete.hard - this.state.turns;
         }
-        else if (this.state.stage + 1 > this.state.normalAtStage){
+        else if (this.state.stage + 1 > this.props.normalAtStage){
             nextGame = new Game(9, 5);
             type = 'game-9by5';
-            addTime = this.state.addTimeOnComplete.normal - this.state.turns;
+            addTime = this.props.addTimeOnComplete.normal - this.state.turns;
         }
         else {
             nextGame = new Game(6, 3);
             type = 'game-6by3';
-            addTime = this.state.addTimeOnComplete.easy - this.state.turns;
+            addTime = this.props.addTimeOnComplete.easy - this.state.turns;
         }
         if (addTime < 0) { addTime = 0; }
         this.timer.addSeconds(addTime);
-        this.setState((state) =>({
+        this.setState((state) => ({
             earnedSeconds: addTime,
             displayTime: this.timer.getFormattedTime(),
-        }));
-        this.setState((state) => ({
             turns: 0,
             stage: ++state.stage,
             game: nextGame,
             type: type
         }));
-        // Force animation to reset and play
-        $('#timer').removeClass('flash');
-        setTimeout(() => $('#timer').addClass('flash'), 100);
-        // Reset popup animation
-        $('#popup').removeClass('popup');
-        $('#popup').css('display', 'none');
+        this.forceAnimationToResetAndPlay();
+    }
+
+    // Workaround to trigger animation of timer and popup
+    forceAnimationToResetAndPlay(){
+        // Timer
+        const timer = $('#timer');
+        timer.removeClass('flash');
+        setTimeout(() => timer.addClass('flash'), 100);
+        // Popup
+        const popup = $('#popup');
+        popup.removeClass('popup');
+        popup.css('display', 'none');
         setTimeout(() => {
-            $('#popup').addClass('popup');
-            $('#popup').css('display', 'block');
+            popup.addClass('popup');
+            popup.css('display', 'block');
         }, 100);
     }
 
     onTimerTick() {
         this.timer.subSeconds(1);
-        this.setState((state) => ({
-            displayTime: this.timer.getFormattedTime(),
-        }));
-        if (this.state.displayTime === '0:00'){
-            this.onLose();
-        }
+        this.setState({displayTime: this.timer.getFormattedTime()});
+        if (this.state.displayTime === '0:00'){ this.onLose() }
     }
 
     render() {
