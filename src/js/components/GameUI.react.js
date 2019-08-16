@@ -27,7 +27,7 @@ class GameUI extends React.Component{
     }
 
     resetGame(){
-        this.timer.reset();
+        this.timer.resetTime();
         this.setState({
             game: new Game(6, 3),
             turns: 0,
