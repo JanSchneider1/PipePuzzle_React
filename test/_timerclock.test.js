@@ -86,7 +86,8 @@ describe('Test getting formatted time results in the expected string', () => {
     ${0}           | ${0}              | ${"0:00"}     
     ${12}          | ${0}              | ${"12:00"}     
     ${1}           | ${12}             | ${"1:12"}  
-    ${0}           | ${7}              | ${"0:07"}             
+    ${0}           | ${7}              | ${"0:07"}    
+    ${0}           | ${10}             | ${"0:10"}           
     
     `('Formatted string of timer with $currentMinutes min and $currentSeconds sec is $expectedString',
         ({ currentMinutes, currentSeconds, expectedString }) => {
