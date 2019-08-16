@@ -18,6 +18,7 @@ const settings = {
 class GameUI extends React.Component{
     constructor(props){
         super(props);
+        this.timer = new TimerClock(1, 30);
         this.state = {
             game: new Game(6, 3),
             turns: 0,
@@ -25,7 +26,7 @@ class GameUI extends React.Component{
             normalAtStage: 2,
             hardAtStage: 5,
             type: 'game-6by3',
-            timer: new TimerClock(1, 30),
+            displayTime: this.timer.getFormattedTime(),
             gameOver: false,
             addTimeOnComplete: {
                 easy: 15,
@@ -40,6 +41,7 @@ class GameUI extends React.Component{
     }
 
     resetGame(){
+        this.timer.reset();
         this.setState((state) => ({
             game: new Game(6, 3),
             turns: 0,
@@ -47,7 +49,7 @@ class GameUI extends React.Component{
             normalAtStage: 2,
             hardAtStage: 5,
             type: 'game-6by3',
-            timer: new TimerClock(1, 30),
+            displayTime: this.timer.getFormattedTime(),
             gameOver: false,
             addTimeOnComplete: {
                 easy: 15,
@@ -98,7 +100,11 @@ class GameUI extends React.Component{
             addTime = this.state.addTimeOnComplete.easy - this.state.turns;
         }
         if (addTime < 0) { addTime = 0; }
-        this.addTimeToTimer(addTime);
+        this.timer.addSeconds(addTime);
+        this.setState((state) =>({
+            earnedSeconds: addTime,
+            displayTime: this.timer.getFormattedTime(),
+        }));
         this.setState((state) => ({
             turns: 0,
             stage: ++state.stage,
@@ -118,20 +124,13 @@ class GameUI extends React.Component{
     }
 
     onTimerTick() {
+        this.timer.subSeconds(1);
         this.setState((state) => ({
-            timer: state.timer.subSeconds(1)
+            displayTime: this.timer.getFormattedTime(),
         }));
-        if (this.state.timer.getFormattedTime() === '0:00'){
+        if (this.state.displayTime === '0:00'){
             this.onLose();
         }
-        console.log(this.state.timer.getFormattedTime());
-    }
-
-    addTimeToTimer(timeInSeconds){
-        this.setState((state) =>({
-            earnedSeconds: timeInSeconds,
-            timer: state.timer.addSeconds(timeInSeconds)
-        }));
     }
 
     render() {
@@ -140,7 +139,7 @@ class GameUI extends React.Component{
                 <GameOver stage={this.state.stage} gameOver={this.state.gameOver} resetGame={this.resetGame}/>
                 <HUD turns={this.state.turns}
                      stage={this.state.stage}
-                     timer={this.state.timer.getFormattedTime()}
+                     displayTime={this.state.displayTime}
                      earnedSeconds={this.state.earnedSeconds}
                      onTimerTick={this.onTimerTick}
                 />

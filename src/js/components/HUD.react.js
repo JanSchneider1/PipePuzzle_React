@@ -10,7 +10,7 @@ class HUD extends React.Component{
             <div className="hud container-fluid">
                 <div className="row">
                     <TurnCounter turns={this.props.turns}/>
-                    <Timer timer={this.props.timer}
+                    <Timer displayTime={this.props.displayTime}
                            onTimerTick={this.props.onTimerTick}
                            earnedSeconds={this.props.earnedSeconds}
                     />

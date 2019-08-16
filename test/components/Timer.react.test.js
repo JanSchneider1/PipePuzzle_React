@@ -20,7 +20,6 @@ test("Creating Timer matches Snapshot", () => {
       id="timer"
     >
       Time: 
-      3:59
       <div
         className="container-fluid popup"
         id="popup"

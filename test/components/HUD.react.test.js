@@ -32,7 +32,6 @@ test("Creating HUD matches Snapshot", () => {
           id="timer"
         >
           Time: 
-          3:59
         </div>
         <div
           className="hud-stage-counter col-4"
