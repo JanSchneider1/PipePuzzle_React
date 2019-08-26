@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2224fa84-d760-4450-a8ca-a5bbea55bed3" name="Default Changelist" comment="Fixes issue #4">
-      <change afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+    <list default="true" id="2224fa84-d760-4450-a8ca-a5bbea55bed3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/_tiledata.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/_tiledata.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+            <state relative-caret-position="-340">
+              <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -101,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/css/app.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="183" selection-start-line="183" selection-end-line="183" />
+              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
             </state>
           </provider>
         </entry>
@@ -179,7 +173,6 @@
         <option value="$PROJECT_DIR$/build/js/_tiledata.js" />
         <option value="$PROJECT_DIR$/build/js/app_deploy.js" />
         <option value="$PROJECT_DIR$/build/js/Components/GameOver.react.js" />
-        <option value="$PROJECT_DIR$/src/css/app.less" />
         <option value="$PROJECT_DIR$/src/js/_timerclock.js" />
         <option value="$PROJECT_DIR$/src/js/_random.js" />
         <option value="$PROJECT_DIR$/src/js/app.js" />
@@ -187,6 +180,7 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/src/html/app.html" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/src/css/app.less" />
       </list>
     </option>
   </component>
@@ -285,7 +279,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566809425402" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566809591549" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -421,14 +415,7 @@
       <workItem from="1565793877190" duration="253000" />
       <workItem from="1565850397806" duration="21738000" />
       <workItem from="1565933754544" duration="22146000" />
-      <workItem from="1566796540000" duration="12436000" />
-    </task>
-    <task id="LOCAL-00008" summary="Added rotation and game is now centered">
-      <created>1564067204218</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1564067204218</updated>
+      <workItem from="1566796540000" duration="12601000" />
     </task>
     <task id="LOCAL-00009" summary="Added jest">
       <created>1564073589828</created>
@@ -766,7 +753,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565957375590</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Transformed toolchain to work with Gulp">
+      <created>1566809467740</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1566809467740</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -802,7 +796,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340260000" />
+    <option name="totallyTimeSpent" value="340425000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -925,7 +919,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring" />
     <MESSAGE value="Increased tilemap size" />
     <MESSAGE value="Solving the puzzles generates a new one" />
     <MESSAGE value="Lifting states up" />
@@ -950,7 +943,8 @@
     <MESSAGE value="Refactored GameUI" />
     <MESSAGE value="Fixed restart game" />
     <MESSAGE value="Fixes issue #4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes issue #4" />
+    <MESSAGE value="Transformed toolchain to work with Gulp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transformed toolchain to work with Gulp" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/_generator.test.js">
@@ -1173,13 +1167,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/app.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="183" selection-start-line="183" selection-end-line="183" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13083">
@@ -1249,8 +1236,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+        <state relative-caret-position="-340">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/app.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
         </state>
       </provider>
     </entry>

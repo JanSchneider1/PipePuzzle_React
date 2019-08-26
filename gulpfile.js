@@ -2,6 +2,7 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
+const sourcemaps = require('gulp-sourcemaps');
 
 // Plugins
 const less = require('gulp-less');
