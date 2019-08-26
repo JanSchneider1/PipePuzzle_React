@@ -18,6 +18,11 @@ app.get('/app.js', function(req, res) {
     res.sendFile(path.join(__dirname + '/build/js/app.js'));
 });
 
+app.get('/app.min.js', function(req, res) {
+    console.log("Sending JS file 'app.min.js' to client");
+    res.sendFile(path.join(__dirname + '/build/minified/js/app.min.js'));
+});
+
 app.get('/app_deploy.js', function(req, res) {
     console.log("Sending JS file 'app.js' to client");
     res.sendFile(path.join(__dirname + '/build/js/app_deploy.js'));
@@ -26,6 +31,16 @@ app.get('/app_deploy.js', function(req, res) {
 app.get('/app.less', function(req, res) {
     console.log("Sending LESS file 'app.less' to client");
     res.sendFile(path.join(__dirname + '/src/css/app.less'));
+});
+
+app.get('/app.css', function(req, res) {
+    console.log("Sending CSS file 'app.css' to client");
+    res.sendFile(path.join(__dirname + '/build/css/app.css'));
+});
+
+app.get('/app.min.css', function(req, res) {
+    console.log("Sending CSS file 'app.min.css' to client");
+    res.sendFile(path.join(__dirname + '/build/minified/css/app.min.css'));
 });
 
 app.listen(port);

@@ -108,5 +108,4 @@ class TileData {
         return this.rotation;
     }
 }
-
 module.exports = { TileData };
